@@ -1,0 +1,331 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Open UC Hardware</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="single is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">OUCH</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="#">Meta-Tutorial</a></li>
+								<li><a href="index.html">UC Advice Talks</a></li>
+								<li><a href="#">UC Interviews</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Lorem ipsum</h3>
+											<p>Feugiat tempus veroeros dolor</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Dolor sit amet</h3>
+											<p>Sed vitae justo condimentum</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Feugiat veroeros</h3>
+											<p>Phasellus sed ultricies mi congue</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Etiam sed consequat</h3>
+											<p>Porta lectus amet ultricies</p>
+										</a>
+									</li>
+								</ul>
+							</section>
+
+						<!-- Actions -->
+							<section>
+								<ul class="actions stacked">
+									<li><a href="#" class="button large fit">Log In</a></li>
+								</ul>
+							</section>
+
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">OpenRAM and 'Nano-Architecture'</a></h2>
+										<p>An Interview with UC Professor Matt Guthaus</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2023-04-01">April 1, 2023</time>
+										<a href="parker.html" class="author"><span class="name">Parker Murray</span><img src="images/parker.jpg" alt="" /></a>
+									</div>
+								</header>
+								<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+								<p>
+									Q: So we'll get started with just
+									our basic starter question. Can you briefly just summarize what your research is about,
+									your research philosophy? <br></br>
+
+									A: Yeah, well I guess we'll just start there. Yeah, so I'm kind of a mix
+									between a circuits person and a design automation person, so I kind of span the two. I like to think
+									of it as like nano-architecture, where it's not micro-architecture, but it's not necessarily
+									circuits. So I've done a lot of work in like areas that are not digital, but not analog,
+									so I've done things with clocking on chips, resonant clocking, now I kind of focus on memories,
+									you know, SRAMs, non-volatile memory, these things that are, yeah, between digital and analog
+									essentially. But then with a focus on automation, so tools to support them and make
+									certain flows and so on. <br></br>
+
+									Q: And then our other starter question is, what makes you
+									want to get up in the morning slash stay up late at night to work on? <br></br>
+
+									A: I like getting my hands dirty
+									in coding. It actually, I always go back and forth between having a lot of students and having few
+									students, because once you have too many students and too many projects, it's hard to do stuff
+									yourself. So I always like to try to find a balance there to code. I always joke, like I'm
+									an associate dean now, but I'm a dean that codes. <br></br>
+
+									Q: Friday is your day. I love it, I love it. If you
+									look at your Git commit history, it would be Fridays. <br></br>
+
+									A: Yeah, except when I'm burnt out from
+									a week of meetings. <br></br>
+
+									Q: I can imagine. Yeah, great. Okay, so let's see, some of these questions.
+									Can you shortly talk about OpenRAM? Just, yeah, a basic, I think, just an overview,
+									I think is what they're looking for. <br></br>
+
+									A: Yeah, I mean, you know, memory compilers are not
+									something that's new. Every company has had their own, IP providers have had their own,
+									but what we were trying to do is just avoid duplication of effort, like internal projects
+									that do the same thing and try to make something that where, especially the commodity parts,
+									can be reused among different technologies and so on. And so a lot of memory is technology
+									dependent, so it gets challenging there. But there's things like characterization and
+									tiling where you can be a little agnostic of the actual details. And so we've tried to do
+									this approach where we make it flexible enough that it's a good starting point, but then it's
+									also open source, so you can customize it and get it to be exactly what you want. And maybe not,
+									you know, not contribute specific things back if they're proprietary. Sure, sure. So it's a
+									challenging area. You know, I mentioned in my talk this, you know, UMIPS, which was like a
+									analog mixed signal repository where it's very hard to do design in those areas because of the
+									proprietoriness of, you know, PDKs. And then Google happened, you know, with this SkyWater
+									PDK and it's like, oh, this is a perfect fit. So that's great. <br></br>
+
+									Q: Great. Thank you. What is current mode clocking and what do you think about clockless designs? <br></br>
+
+									A: Oh, clockless designs are great. You know,
+									I think, honestly, I would say most people should do asynchronous or clockless design.
+									But the problem is we don't educate people to do that and it's challenging to get a workforce.
+									So we're kind of stuck, you know, effectively with clocked design. And that's why I've kind
+									of worked on that and trying to, you know, I did a number of years on resonant clocking,
+									which tries to recycle the energy from the clock. Then I did a number of years with one of my
+									students, Radul, on current mode, where it's instead of trying to recycle the energy, people
+									didn't like using inductors and stuff on chip because, again, it's analog, it's not digital,
+									it's kind of scary. So we went with another approach of just sensing small changes in the
+									current, which they've done this for off-chip signaling, you know, like Rambus and companies
+									like this for memory interfaces. But those are always point-to-point connections. And so we
+									came up with the idea of what if we do a point-to-mini-point for a clock network where
+									we can do that. And that introduces new challenges, but also, you know, is a new opportunity for a big
+									power-hungry clock network to reduce the power. <br></br>
+
+									Q: So I think this is somewhat related, but what do you see as like the future of clock
+									related research going forward? <br></br>
+
+									A: That's an interesting question. I haven't been doing
+									clock stuff for a while, you know, maybe I'm kind of thinking about that next thing in my own way.
+									I thought the verification talk actually after me was pretty interesting, like trying to verify,
+									like, you know, cross-domain clocking and things like that, because designs don't just have a
+									single clock domain anymore. Right, right. And so reliability of stuff like that's important. <br></br>
+
+									Q: How do you suggest students and faculty should consider things that they should consider when they want to open source their work?<br></br>
+
+									A: So one thing to consider is, you know, when you open source something, it's one thing to just
+									release it and kind of be done with it, which things generally aren't successful if you do that,
+									they become stale and kind of don't get updated. So you have to be kind of aware of that there's
+									going to be a certain amount of support and overhead that comes with it. And I think that's
+									a difficult thing to manage. You know, you're going to have user questions and kind of, you
+									know, bug fixes and lots of questions. And so just realizing that, you know, every morning I respond
+									to like two or three questions just from someone on Slack, someone over email, you know, some of
+									these are like 30, 40 messages deep, you know, helping someone with something. So I think,
+									yeah, that amount of time, it's not always a big amount of time, but it's consistent.
+									And I guess the more projects you get, the more of that you have. <br></br>
+
+									Q: How do you suggest chip designers stay up to date with fast paced advancements in the hardware
+									community without getting overwhelmed? <br></br>
+
+									A: I think conferences like this or workshops like this,
+									you know, you can read papers, but often papers have too much information in them.
+									There's actually a good, you know, talking to people is much better, but in the event you can't
+									meet with people and talk to them, I think there's certain techniques to read papers quick. I go over
+									a method with my grad students of doing like a three pass method where the first pass you should
+									basically read, skim over a paper and the titles of sections in like 10 minutes and read the
+									abstract. And then learn to evaluate, you know, should I go more in depth to it? Then the second
+									pass, you kind of want to read it to get the gist of kind of how they do something, but not the
+									specifics. And then the third pass, you kind of learn everything and try to recreate it. So trying
+									to learn to manage how much time you spend per new thing. Sure, sure. Essentially is something
+									that's important to learn and it's a skill to develop. There's a bit of an art to it. Yeah,
+									definitely. Because you can prune out a lot of stuff, maybe like 10 minutes. Oh,
+									that's interesting, but not for me. Yeah, yeah. And so great. And then when to stop reading papers.<br></br>
+
+									Q: You mentioned in your presentation, you talked about like not being afraid to do small contributions, even teaching people how
+									to do a pull request on something as simple as like a typo. How can you, how do you suggest like
+									grad students deal with peer or advisor pressure? Like, like, there's, I think there's kind of a
+									sense that like, I want to contribute something big. But I think, I think from your talk, you
+									made the point that starting small is so important. <br></br>
+
+									A: Yeah, I think starting small is definitely
+									important. I think it's important to look at contributions over time. Because, you know,
+									when you do a PhD or something, you're going to spend five, six years, you can do little things
+									over that time that ultimately look bigger when you get, get to the end. And I think there's,
+									there's too much pressure on doing things immediately, where it's, that's why you have
+									to focus on kind of small steps. And so I think it's like time management and things like that of,
+									you know, set individual goals, like daily goals, like I want to do X today. And it has to be
+									something you can do that day, not something that'll take a week. I think Scott mentioned
+									something similar about like prototyping a project in like four to five weeks. It's the same
+									idea, you want to be able to do kind of quick iterations, like agile development. <br></br>
+
+									Q: Great. Okay, now we've got some kind of more general open source hardware,
+									RISC-V related questions. Where do you see the future of the open source hardware community
+									and RISC-V headed? Like, do you think it could, you know, start to gravitate more towards being
+									an industry standard, almost like Linux has, you know, become the go-to backend? Or do you think
+									it'll remain in the domain of academics or like startups that, you know, that, that quick, that
+									ability to quickly iterate is so valuable for startups, right? <br></br>
+
+									A: I mean, I'll say it's probably a little controversial at an open source conference, but I'm not against proprietary stuff.
+									There's definitely a place for proprietary things. I think the interesting part for a lot of
+									most open sources, when things become commodity, there's no reason for people to replicate them.
+									You know, I think like ISAs should be a commodity, right? Like there's no reason to have custom ISAs.
+									And so I think we're starting to see that more and more with FPGA tools. You know, people are
+									doing synthesis now that wouldn't do synthesis a long time ago because FPGAs are a commodity thing
+									now. And so that's, that's transforming stuff. And will actual custom silicon, you know, ASIC
+									design do that? Maybe. I don't know. I'm not convinced yet. But it could.
+									I think one other challenge, one other opportunity for that actually, though,
+									is I think with like, what do I call it? Like when we do more multi-die integration,
+									there's more like chiplet type stuff. There's more possibility for potentially integrating
+									like lower cost, older technologies in a bigger system. I think if we go to a modular type
+									approach like that, custom silicon might be more accessible to users, you know, where you can
+									put my custom chip with an accelerator in 130 nanometer on top of an Intel CPU,
+									you know, or, you know, some custom RISC-V CPU that, you know, SiFive made or something.
+									Where you don't have to do the heavy lifting, but you can still do something custom that's
+									only cost, you know, thousands of dollars to make. As opposed to magnitude larger.
+									So that might happen, but I don't, it's to be determined. <br></br>
+
+									Q: Great, great. This is an interesting
+									one. What do you think the position of the open source community should be vis-a-vis generative AI, generative models?
+									A bit of a hot topic. <br></br>
+
+									A: Yeah. I mean, yeah, I did my thing at the start of my talk generated by
+									chat. I did that this morning. I was just like, oh, it's April fools. So it's interesting. We've talked a lot about it in terms
+									of teaching. And you know, one of the things that it's generally good at is it can generate some
+									code, right? But it's usually bad at it or there's bugs. <br></br>
+
+									Q: And often in subtle ways. <br></br>
+
+									A: In subtle ways. And I think that's almost an opportunity in some ways where you can have it do a lot of the basic
+									boilerplate stuff, but then you have to be knowledgeable enough to fix the problems.
+									So that's actually a good way for teaching. It's like, you're almost looking at someone else's
+									code that you don't trust. They didn't test it. And so, you know, if we can kind of figure out
+									the verification debug type side of stuff for generated things that might happen,
+									but that, you know, there's already such an emphasis on verification of human generated stuff
+									and how difficult that is. I see it as a big challenge. <br></br>
+
+									Q: We have one kind of just a fun closing question. Hopefully this isn't too controversial.
+									Do you have a favorite open source license? <br></br>
+
+									A: Oh, no, I don't. <br></br>
+
+									Q: That seems to be the consensus.<br></br>
+
+									A: I've always just done BSD3 clause. You know, I think they mentioned universities don't like
+									Apache, actually. They're worried about us giving away our patents. You know,
+									even someone else's patent at the university, you could inadvertently give away. So they don't like
+									that. I like it. I think because I think the IP part is an important part, you know, actual patents.
+									But, you know, I think GPL is meant to have good security, but companies are afraid of it.
+									And so, you know, I definitely didn't want to make OpenRAM GPL just because I wanted
+									companies to use it to be able to utilize it. And there's certain companies that won't even
+									touch something that's GPL. So I think, yeah, the more permissive, the better.
+									Where, in a way, GPL is not permissive because it requires you to do certain things. So
+									so things like BSD are actually more permissive.<br></br>
+
+									Q: Thank you so much for your time. Appreciate it.<br></br>
+
+
+									</p>
+								<!-- <p>Nunc quis dui scelerisque, scelerisque urna ut, dapibus orci. Sed vitae condimentum lectus, ut imperdiet quam. Maecenas in justo ut nulla aliquam sodales vel at ligula. Sed blandit diam odio, sed fringilla lectus molestie sit amet. Praesent eu tortor viverra lorem mattis pulvinar feugiat in turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ullamcorper tellus sit amet mattis dignissim. Phasellus ut metus ligula. Curabitur nec leo turpis. Ut gravida purus quis erat pretium, sed pellentesque massa elementum. Fusce vestibulum porta augue, at mattis justo. Integer sed sapien fringilla, dapibus risus id, faucibus ante. Pellentesque mattis nunc sit amet tortor pellentesque, non placerat neque viverra. </p> -->
+								<footer>
+									<ul class="stats">
+										<li><a href="index.html">Main</a></li>
+										<!-- <li><a href="#" class="icon solid fa-heart">28</a></li>
+										<li><a href="#" class="icon solid fa-comment">128</a></li> -->
+									</ul>
+								</footer>
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon solid fa-rss"><span class="label">RSS</span></a></li>
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
