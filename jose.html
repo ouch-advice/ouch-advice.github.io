@@ -1,0 +1,576 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Open UC Hardware</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="single is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">OUCH</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="#">Meta-Tutorial</a></li>
+								<li><a href="#">UC Advice Talks</a></li>
+								<li><a href="#">UC Interviews</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Lorem ipsum</h3>
+											<p>Feugiat tempus veroeros dolor</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Dolor sit amet</h3>
+											<p>Sed vitae justo condimentum</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Feugiat veroeros</h3>
+											<p>Phasellus sed ultricies mi congue</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Etiam sed consequat</h3>
+											<p>Porta lectus amet ultricies</p>
+										</a>
+									</li>
+								</ul>
+							</section>
+
+						<!-- Actions -->
+							<section>
+								<ul class="actions stacked">
+									<li><a href="#" class="button large fit">Log In</a></li>
+								</ul>
+							</section>
+
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">Future with Live Hardware Development</a></h2>
+										<p>Interview with UC professor, Jose Renau</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2023-04-01">April 1, 2023</time>
+										<a href="naz.html" class="author"><span class="name">Nazerke Turtayeva</span><img src="images/naz.jpg" alt="" /></a>
+									</div>
+								</header>
+								<span class="image featured"><img src="images/livehd.png" alt="" /></span>
+								<p>
+									Q: So, what makes you to wake up in the morning, or maybe stay up in the night? <br>
+									
+									A: Wake up in the morning, it's always getting ready for my kids, to get to the school, so
+									I have to get them to school, so, literally, that's the thing.
+									On the night, I stay late in the night, so if we switch to the work, I'm always thinking,
+									it's like, for the PhD students, it's what the focus is, try to see how to get them hold
+									a career.
+									So, it's like, oh, what can we do in the topic, what can we change, there's something on the
+									project, or how to see the structure of things, that's things that consumes quite a bit of
+									time.
+									So, I try to help them graduate and be successful.<br><br>
+									
+									Q: And so, yeah, this day, what is your research about?
+									So, I can say that you do some stuff with, like, hardware description languages, and
+									automating the design process, right?<br>
+									
+									A: Yeah, so, my background is more computer architecture, traditionally, so I always have one PhD student
+									or two who work, for example, I have a student working on branch predictors, which is a very
+									old topic in computer architecture, it's been hammered to death, but the student wanted
+									to work without the course, like, oh, I can do that, it's quite a bit challenging to get
+									a paper because there's a lot of related work, but I always have something in that area.
+									In addition to that, the main focus has been how to improve the productivity of chip design.
+									So, I tell the students, if you have any good idea on how to improve productivity of design
+									and it's something publishable, I'm open to it.
+									So, around there, there has been quite a bit of work with designing a new programming language
+									that we've been involving internally, and we never release outside because we're not
+									happy, but we have been working quite a bit.
+									And then, with the tools to try to get an incremental compiler parallel, so the latest
+									publication, like, a month ago or less, it was how to parallelize this compiler, how
+									to try to go faster than the circuit.<br><br>
+									
+									Q: So, then I guess a follow-up question would be, so how would be the difference of building
+									compiler for regular languages, I guess C, C++, versus for the HDLs?<br>
+									A: So there is some similarity and difference.
+									So the similarity is a compiler infrastructure, but it has some things that are much simpler.
+									We don't have pointers, we don't have loads and stores, the loops, which are a big complication
+									on the normal compilers, they get unrolled most of the time.
+									So on that side, it's much simpler, the compiler, and you can make easier designs.
+									But it has the complexity extra that normal compilers don't have, with pipelining and
+									port allocation on memories.
+									Because on hardware, you want to be very efficient, and then memories, because there are high
+									costs.
+									In software, you do a load, or you do three loads, or you do more loads, but it doesn't
+									complicate your hardware.
+									But if you're having hardware, and you do one load to a memory, or you do three loads
+									with different numbers, now it's a three-ported memory resource, so it's way more costly.
+									So the access to the memories and the pipelining is totally different, cost and overhead, but
+									on the other side, you don't have pointers, which is much simpler.
+									So there are some advantages and disadvantages.
+									Well that's so cool, because yeah, I definitely struggle a lot with pointers.
+									That's why I sometimes say that I love Verilog more than C.
+									Yeah, there's no pointers.
+									So it's not that you have a program counter and a memory subsystem when you have a state.
+									So it's different.<br><br>
+									
+									Q: Interesting. So how do you model pipelining? Or I guess usually when you build the compilers, there would be some parsing logic, you generate
+									tokens or whatever, or build the abstract tree. So how do you do that for pipelining?<br>
+									
+									A: With the low-level representation of the compiler, it looks more like a graph, and then what
+									happens is that the flops sort of break the loops on the graph.
+									So the graph is cyclic because of the flops, but they make it a cyclic graph.
+									So when I do the traversal, usually the flops are the beginning of the traversal and also
+									the end of the traversal.<br><br>
+									
+									Q: By flops, it's like floating point operations?<br>
+									
+									A: Yeah, it's a register, a flop, a register, or memory.
+									Anything that is clock-based.
+									It's places that you break the graph conceptually on the traversal.
+									So usually we do a topological sort traversal, which is, it's not a BFS, but you have to
+									traverse the previous node before going to the next.
+									But the constants are beginning points, and the flops, they have the Q pin and the D pin,
+									so you visit twice.
+									But it's just a graph representation in the low level.
+									In the higher level, we have a tree, and the flops are not shown there so much.
+									So it's sort of, you don't see them, so each representation has an advantage or disadvantage.
+									And that's why we have two representations.
+									One makes some optimizations easier than the other.<br><br>
+									
+									Q: I see. So I think also, so I recently attended Asplos, and I think here also we have some great works
+									on using intermediate representations, right, like IRs or MLIRs.
+									So what do you think about that movement?<br>
+									
+									A: Like when you write your language, I guess, from scratch with some compilers and using
+									IRs? So there is, one is the IR.
+									So what is my take, my real, so it's a bit challenging, because we are a small community
+									like Matthew was saying.
+									So there is a lot of pressure to, why do you build a new compiler, just use whatever is
+									there and fix it.
+									So they use what is there and fix it, it should be all uses or circuit, because they're fertile,
+									they sort of deprecated themselves.
+									So those are the two main ones, you know.
+									Now the problem with using uses is that the internal representation is very, very log-like.
+									So what happens is it doesn't use the typical compiler, it's a SSA, static single assignment.
+									So there are multiple writes for the same variable, and many of the passes and many
+									of the things get very complicated.
+									So you want to build a pass to do an optimization, and that flow, you can easily break the semantics,
+									and it's complicated.
+									Now if I go to circuit, so circuit is newer, there are some things like, for example, we
+									are doing in our pass that we call micro-pass, so when you do in circuit, it's based on LLVM,
+									so the optimist, the work that they, the unit of work is the module, which is a function,
+									function module.
+									So it means that you create a pass and it gets called for the module, and then it gets
+									called for another one.
+									What happens is that you have many passes that they depend on each other, you traverse
+									the module, then you call the other one, then you have to call the next one, and you keep
+									iterating over and having many calls, and they have the pass manager to handle this.
+									But one thing, for example, we're doing different, we were having the same problem, but then
+									we say, oh, we can do, as we traverse the graph, we call the passes for each one of
+									the nodes on the traversal, not that we traverse the graph and then we call the other pass,
+									as that we traverse, we call, and if there is an edit on the graph, we call the pass
+									again on this node only, not the whole module.
+									So it means that we are much more efficient on giving calls, either interacting across
+									passes.
+									
+									Now, doing that type of change in circuit, because it requires all the LLVM infrastructure,
+									will be extremely difficult, because everything is built on module, and it's a huge infrastructure
+									that it has a lot of things.
+									So doing that type of exploration will make it very hard.
+									Well, in this compiler, well, it's all self-contained, and it's not such a big project as the other
+									one, so this type of exploration is much easier.
+									Maybe it's worth it, maybe it's not worth it, but we can try much more easily.
+									And that's why I think it's good to have a diverse set of compilers, not necessarily
+									having everybody working on circuit, everybody working on just this, and that's it.
+									I think it's good for a community, mostly research-wise, to have different IRs.
+									Because there are different trade-offs.<br><br>
+									
+									
+									Q: So then I guess another follow-up question would be, when is the point when you should
+									come up with a new hardware or HDL language, or a compiler versus, yeah.<br>
+									
+									A: So this one, I've been working on Pyro, it's a language that we've been working for a long
+									time, a new HDL, and the way that we started, we started a long time ago, like over 10 years
+									ago.
+									But we have not been releasing that side.
+									So there is a pro and a cons of building a full language versus a DSL.
+									When you look at GSL and those systems, those are DSLs that are built on top of an existing
+									language, like Scala or Python, while what we are doing is a full language.
+									Now that's the first thing that you should decide that you want to do.
+									Now if you do the full language, the advantage is that you can have a much cleaner syntax.
+									You don't have, oh, this is Python, this is DSL, or this is Scala.
+									Like for example, in GSL, they have the triple equals that means something in GSL, while
+									double equals means something in Scala.
+									And then you can build code with that.
+									Now then on top is like what semantics do you want to put to, want to extend the type
+									system, how do you handle full pipelining.
+									So for me, what I've been trying to do is how to build the language and put constructs
+									that will help you on specific problems on hardware.
+									For example, we did something, it was to support elastic pipelines on the syntax.
+									But we have been changing a little bit focus, and mostly what we are trying to do now is
+									how can I make a hardware language that achieves very high performance, I can do another protocol,
+									but is as easy to understand to a non-hardware person as possible.
+									So that many times you have options, for example, you have in hardware, like in GSL, they use
+									the non-blocking assignments.
+									So you have blocking and non-blocking assignments.
+									I don't need to have that.
+									I can do it with all blocking, that is what the normal software people are used.
+									So let's remove the non-blocking, there's not even the option.
+									So what we've been doing is removing many of those things to make it easier, more productive
+									for the bigger community, which is the non-hardware community.
+									So it will be easier for them to jump.
+									So that's the latest focus that we've been having, is how to make it easy for non-hardware
+									programmers, but you still have high performance.<br><br>
+									
+									Q: I think I have a lot of colleagues coming from the software background, they want to
+									enter the hardware world, and they're like, oh, I hate Verilog.
+									And I'm like, it's not that bad.
+									But yeah, definitely, I think it's like, oh, blocking, non-blocking stuff is kind of...<br>
+									
+									A: Yeah, there's the blocking, there's the pound.
+									The other thing that is very confusing, you do an if, and then you do a function call.
+									You cannot do that, because they instantiate it in many languages.
+									Why not?
+									You could do that in hardware too, and then what it just means that you have an enable
+									signal on the function, so it will block it.
+									So in fact, it can be used efficiently, it can be a good thing, but you cannot do that
+									in Verilog.
+									
+									And you cannot do it in many languages.
+									In Chisel, you can do it, but the semantics is not what they will expect, because you
+									put the code inside an if, and then you put a printf inside, it will be printed and recycled.
+									It's like, why is this printed and recycled, if I have inside the if?
+									But it's because it's a recycle that's executed, but if I'm a software person, it's like, why
+									is this printf being printed?
+									So we are trying to make it a little easier to understand to the software people.
+									By software people, I mean not hardware people.<br><br>
+									
+									Q: And so then I guess this all affects eventually how we develop the chips in a quick amount
+									of time, right?
+									Like for hardware productivity.
+									So what is in your vision in the future is that how quick should this chip takeout process
+									should be, like from this initial design to the takeout process?
+									What is the ideal goal, I guess?<br>
+									
+									A: So what we have, and with the project we call Live HD, and the reason for Live is because
+									we...
+									Yeah, so that's Live Hardware Development.
+									And we use the code Live in many of the things on the project, because of the time response.
+									So the humans have the shorter memory, that is from two seconds to 30 seconds, most of
+									the humans in two to 10.
+									So the idea is that when you are solving a problem, you have to have the concepts in
+									your shorter memory, and then you can work over the problem.
+									If it requires more than 30 seconds, that's why the icon on the computers have something
+									like circling, because it lets you focus, and then it allows you to maintain the shorter
+									memory a little bit longer.
+									And then you can come back.
+									Otherwise, you forget it, and then you have to rebuild the shorter memory.
+									So what our goal has is to have the response time, everything, in these two to three seconds.
+									So what we want is that you do a line code change, and you see the synthesis result in
+									two, three seconds.
+									
+									Two to 30 seconds.
+									
+									That's the response time.
+									That's why we call it Live HD, because the goal is to be very aggressive on the incremental,
+									so that you can get the response time in two to 30 seconds.
+									Not always possible.
+									
+									But that's our goal.
+									Our goal is the two to 30 seconds, and the reason is the shorter memory, because then
+									maybe we can pay a little.
+									If it goes to two minutes, but two minutes and 30 seconds from a hardware point of view
+									is instantaneous, compared with now.<br><br>
+									
+									Q: Wow, that sounds very ambitious.<br>
+									
+									A: So we have some papers that we were able to get in two minutes for place and route on
+									the PGS.
+									So using the incremental, and the way that we tested is there is no benchmarks for incremental,
+									so what we did is look at GitHub projects that they have commit history, and then one
+									of the commits was the incremental, which in fact is a little too big, but fine, that's
+									what we were doing.
+									Because when you edit, you don't edit as much as a commit.
+									So we were using that as incremental, and for the Vivado, using parts of Vivado, parts
+									of our synthesis, we were able to get it in, it was from one minute to five minutes, instead
+									of the original time, that it was in the half an hour to one hour.<br><br>
+									
+									Q: That would be cool, because I mean, I think in the industry usually it's a problem, right?
+									Especially given these companies are building their chips, tape out, they want to come up
+									with new chips, but then your software is changing always, and then you have to think
+									ahead of time, and how you think ahead of time, given you usually tape out chips in
+									two years.<br>
+									
+									A: Yeah, and there is that, and there is the, usually when I've been working in industry,
+									many companies have Friday meeting, in which the backend team provides feedback to the
+									RTL designers. So it's usually once a week.
+									
+									So it's the Friday meeting, they provide timing, and then you can try to go.
+									So they just try to shorten up those feedback loops, because it's much shorter feedback
+									loops, much faster iteration.
+									Now industry, I mean, the problem is that they don't have the incentive in cadence
+									synopsis, because if I do incremental, how do I charge the license, how do I do it?
+									
+									And you think of it, if I'm going to fabricate the chip, well, it's okay for the final run
+									to take, let's say, two weeks or three weeks, and it usually takes a few weeks now.
+									But the problem is not that two or three weeks, it's the development process, and the development,
+									you want to improve pipeline, so you have to have good feedback.
+									And because they're improving, focusing so much on the quality of this final run before
+									fabrication, they are not focusing on this incremental.
+									So that's why I think that the open source flow can help to get some of those things.<br><br>
+									
+									Q: So, yeah, like, with this, like, two to 30 second syntax to program synthesis loop, right?
+									Like, what is the secret behind, I guess?<br>
+									
+									A: So it's mostly, the concept is, you see, is that if you do a code change, unless you change
+									parameters that affects everything, it's going to be very localized.
+									
+									So you think of it.
+									So what you have to do is to have the graph partitioning sub-graphs.
+									The first time you do a run, and it's full, and then you partition the graph in sub-graphs.
+									And then the next time, you look at that change, and you see, oh, what graph got changed?
+									This one.
+									And then you synthesize this sub-graph, and then you see, did the thing propagate the
+									timing on the edges?
+									
+									And then you will synthesize the next adjacent to it.
+									Because sometimes you might change something and put A equals zero, and now optimize inside
+									the graph, but it propagates outside your graph.
+									
+									So you optimize yours, and you see in the boundary, did it change the timing or the
+									constants on the boundary?
+									Yes, I have to synthesize the next one, too.
+									
+									And then you can, in the worst case, it will propagate and do everything.
+									
+									But most of the time, it doesn't.
+									Some other time, you change what you do, and maybe it propagates one module next.
+									
+									So it's one of those that are in the, it was the ending of the design, but it was in the
+									order of under 1,000 gates.
+									
+									So it means you can synthesize 1,000 gates very fast.
+									
+									And then the tricky part, it was in the place and route that the tools don't tend to have
+									incremental place and route, but in Vivado, they do it.
+									So with the TCL interface, we're able to do it.<br><br>
+									
+									Q: So is this like, when we tested the design, was it like a CPU, or was it like digital
+									design?<br>
+									
+									A: So we got several projects from GitHub, but they tend to be CPU-heavy.
+									And most of the people like to use little CPUs.
+									
+									So there were a couple of, there were three, the benchmarks are newbies, so we have them
+									on GitHub.
+									So what we did, we open source, and we create a benchmark for incremental.
+									
+									So there is a few CPUs, and we were trying heavily to look something that is not a CPU.
+									
+									To have something different.
+									But it's CPU-heavy.<br><br>
+									
+									Q: Yeah, I guess, essentially, it's what the community is building as well.
+									So I guess it is still, I mean, I think it is still good.
+									And I think this is also a nice approach, because sometimes when we would be using Vivado
+									with colleagues, we are like, oh, my gosh, I just changed this line.
+									Why it's like compiling forever?
+									It could just stop.
+									I mean, doing some part of it, right?<br>
+									
+									A: Yeah, the funny thing is that Vivado does not, at least when we tried a couple of years
+									ago, did not have incremental synthesis, but it has incremental place and run.
+									
+									But Altera, now it's Intel.
+									
+									Had incremental synthesis, but not incremental place and run.
+									Mm-hmm.
+									But the incremental synthesis in Altera was not great, because it reduced at most half
+									of the time.
+									
+									Even if you change that, the example was, you change that space, which doesn't change
+									semantics.
+									
+									And then you say recompile.
+									
+									So Vivado was taking the same time, if I change the space or not.
+									
+									In Altera, it was taking half the time.
+									
+									So they had some incremental, but I just changed the space.
+									I didn't change anything.
+									
+									And it was just taking half the time.
+									Instead of taking, let's say, 20 minutes, it was taking 10.<br><br>
+									
+									Q: That's really nice insights about the problem space.
+									So let's look at the time.
+									I have some couple of more questions.
+									Oh, yeah, we are out of time.
+									So I guess it's time for my fun questions.
+									So what is, okay, do you have favorite open source license, if it is what you said?<br>
+									
+									A: So my favorite is Apache.
+									Because in the BSD, it's not clear that you can get sued for patent infringement.
+									So one thing that you can do in the BSD, in theory, you publish something in BSD.
+									
+									And then you submit a patent.
+									You let them use, and then later sue them for the patent.
+									It's not been litigated in the sense that it's not clear if BSD includes patents or
+									not.
+									
+									But because it's not clear, and most people think that that's okay, that can happen.
+									That's why they create Apache.
+									Apache explicitly says, I'm not going to sue you for patents.
+									In the BSD, it doesn't say anything about patents.
+									On the Apache, it does say that.
+									So you can convince the university to do Apaches better.
+									The only thing universities don't tend to like to do, the patent office from the universities
+									doesn't tend to like Apache because they say, I cannot use my business.
+									I cannot sue with patents.
+									So the patent office don't tend to like the Apache license.
+									I know, for example, in Berkeley had complications to try to get an Apache.
+									In Santa Cruz, with the previous people on the office, we were able to push it and get
+									it.
+									The new ones, they don't like it so much, and they have been pushing back.
+									So it's a little harder.
+									BSD tends to be easier.<br><br>
+									
+									Q: What's the difference from the MIT one?<br>
+									
+									A: So the MIT, it's even a little more open, but it's very close to the BSD.
+									So the MIT, they can nearly rip off nearly everything as long as you keep the license
+									file original.
+									Well, in the BSD, I think they have to still keep the copyright for every file, and I think
+									you still hold copyrights.
+									But it's very close.<br><br>
+									
+									Q: Another concluding question would be, what would be your wisdom for early-stage PhD students? Well, for productivity and research creativity, maybe, yeah.<br>
+									
+									A: So mostly, pick an advisor that has a project that you like, the topic or the area.
+									Interact with the other students that you are happy with that, because you're going
+									to stay for a long time.
+									So the worst thing is to start a PhD on a topic that you don't like.
+									If you like the topic, then I think that's the most important.
+									Then you are going to be happy working on that thing.
+									The only thing that you have to do is to figure out, how do I get the papers?
+									How do I, what is the current topic?
+									And what you might start doing in the first year or two might not be the same as what
+									you are going to defend the thesis.
+									So that's OK.
+									So it's just try to attach, if you are early, try to attach to some other PhD.
+									And try to work towards the paper helping the other one.
+									And then later, you get a very good idea of the flow.
+									And then you start to do it with yourself.
+									That would be my recommendation.<br><br>
+									
+									Q: Yeah, I think it definitely helps.
+									But then, do you have different recommendations for older PhD students?<br>
+									
+									A: Every student, they have different problems always.
+									Sometimes it's that they, recently it's been the COVID.
+									Before it was that I have students who have a relationship and they get depressed.
+									Or you have some health issues.
+									Or they have family, so they're overloaded with the kids and everything.
+									So it's so difficult to have a recommendation.
+									So if there are going to be issues, that's the guarantee.
+									But they are going to be different.
+									So as long as you are flexible, you understand that it may take a little more time,
+									a little bit less time.
+									Don't get obsessed that you have to graduate in five or six years.
+									It's OK, it takes a little more.
+									So that would be the main thing.
+									There's going to be flexibility there.
+									I'm sure it's going to come up some issue, we'll figure out.<br><br>
+									
+									Q: Thank you.
+									Yeah, I think these are all very important advices.
+									And I think I've also learned a lot about this HDL and this harder productivity.
+									So thanks a lot for your interview.<br>
+									
+									A: Thank you.<br><br>
+									</p>
+								<!-- <p>Nunc quis dui scelerisque, scelerisque urna ut, dapibus orci. Sed vitae condimentum lectus, ut imperdiet quam. Maecenas in justo ut nulla aliquam sodales vel at ligula. Sed blandit diam odio, sed fringilla lectus molestie sit amet. Praesent eu tortor viverra lorem mattis pulvinar feugiat in turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ullamcorper tellus sit amet mattis dignissim. Phasellus ut metus ligula. Curabitur nec leo turpis. Ut gravida purus quis erat pretium, sed pellentesque massa elementum. Fusce vestibulum porta augue, at mattis justo. Integer sed sapien fringilla, dapibus risus id, faucibus ante. Pellentesque mattis nunc sit amet tortor pellentesque, non placerat neque viverra. </p> -->
+								<footer>
+									<ul class="stats">
+										<li><a href="index.html">Main</a></li>
+										<!-- <li><a href="#" class="icon solid fa-heart">28</a></li>
+										<li><a href="#" class="icon solid fa-comment">128</a></li> -->
+									</ul>
+								</footer>
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon solid fa-rss"><span class="label">RSS</span></a></li>
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
