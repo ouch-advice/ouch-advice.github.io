@@ -1,0 +1,403 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Open UC Hardware</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="single is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">OUCH</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="#">Meta-Tutorial</a></li>
+								<li><a href="index.html">UC Advice Talks</a></li>
+								<li><a href="#">UC Interviews</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Lorem ipsum</h3>
+											<p>Feugiat tempus veroeros dolor</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Dolor sit amet</h3>
+											<p>Sed vitae justo condimentum</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Feugiat veroeros</h3>
+											<p>Phasellus sed ultricies mi congue</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Etiam sed consequat</h3>
+											<p>Porta lectus amet ultricies</p>
+										</a>
+									</li>
+								</ul>
+							</section>
+
+						<!-- Actions -->
+							<section>
+								<ul class="actions stacked">
+									<li><a href="#" class="button large fit">Log In</a></li>
+								</ul>
+							</section>
+
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">Graph Processing, Simulation, and Making Things Go Fast</a></h2>
+										<p>An Interview with UC Professor Scott Beamer</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2023-04-01">April 1, 2023</time>
+										<a href="parker.html" class="author"><span class="name">Parker Murray</span><img src="images/parker.jpg" alt="" /></a>
+									</div>
+								</header>
+								<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+								<p>
+									Q: Okay, so we'll just get started with just a few kind of quick starter questions.
+									Let's just start with basics. What is your research about? What's your, you know, research philosophy?
+									And then we'll just kind of, if we have any follow-ups from there, we'll do that. <br></br>
+
+									A: Yeah, so my research group is the Vertical Architectures, Memories, and Algorithms group, or VAMA for short.
+									And our goal is to look at applications vertically across different computational layers in the stack to try to accelerate them.
+									So we consider algorithms, we consider hardware, we consider interaction in between.
+									And so currently, we're looking at three different application areas.
+									And so one of them, of course, is graph processing. I have a long background in that space.
+									I try to make graph algorithms go faster, custom hardware, custom algorithms, how to interact.
+									Related to this open source community, I also have a high-performance RTL simulator.
+									Essence, we've been working a lot on that simulation problem, which has also been fun,
+									where we can kind of carry some of our expertise with graph processing into the hardware domain.
+									And as a third project area, we're working on verifiable computing,
+									which is a cool application of cryptography where we are able to do computations and produce cryptographic proofs
+									that someone can use to verify we did what we said we did.
+									And so to make this tractable, realistic, we're actually making hardware acceleration in Chisel.
+									So it's kind of a high-level review of what we do in our group.<br></br>
+
+									Q: Great. Thank you. And then our other fun little starter question we have is,
+									what makes you want to get up in the morning slash stay up late at night working?
+									I think this is a question from apparently the Computer Architecture Podcast.<br></br>
+
+									A: Good question. I think the fundamentally uniting theme across a lot of my work and a lot of my research is making things go fast.
+									I have a fundamental desire to see things be efficient.
+									And, you know, usually to go faster, you find inefficiencies and fix them.
+									And so, yeah, so across the research, despite being hardware, software, et cetera,
+									we're kind of looking at appreciating what is the core essence of what you're trying to do.
+									And I recognize what's extraneous and then how to, you know, hopefully, gracefully, not, you know,
+									painfully extricate that from the situation to get the speed.
+									In terms of that's just me as my own research interests, in terms of, you know, the job as a professor,
+									I'm extremely excited to work with people, right?
+									So I get to mentor students, get to teach students.
+									It's a big part of what I get to do.
+									If that wasn't the motivation, I could do a lot of what I do in a research lab or an industry.
+									But the advantage coming back to a university is I get to work with students and they're just a breath of fresh air.
+									They bring a lot of great ideas.
+									They have a lot of energy, a lot of enthusiasm.
+									And that's a nice part of the job.<br></br>
+
+									Q: Could you talk about a little bit about the unique approach your lab has to simulation and your set of simulation tools?<br></br>
+
+									A: Yeah, so our unique approach is this issue we described of this vertical integration,
+									where we aren't working only from the software, only from the hardware side.
+									We really understand both sides and are able to kind of bring some expertise for things like graph algorithms.
+									So, for example, the original version of our simulator, our speedup required the creation of a new type of graph partitioning algorithm,
+									which didn't exist previous to our work.
+									And so we had to go ahead and invent a new graph algorithm.
+									But the recognition of this problem, which hadn't been formally stated and seeing it fit into the whole tool flow,
+									that was benefited by this kind of big picture view of seeing, OK, well, here's what assimilation is doing.
+									We know what hardware is doing and here's what needs to happen to make fast software.
+									And then, oh, wait, it's coming to happen.
+									This is a novel graph problem. We make a partition to solve this novel graph problem.
+									What about doing that? And then we started trying to, you know, make things go faster.
+									We looked at things like, OK, well, what properties of hardware can we exploit?
+									In this case, hardware assimilating to make things go faster.
+									Well, then now the assimilation program, how does that run on the current CPU?
+									Can we profile that performance counter as user knowledge of the architecture to see how we're stressing the processor
+									and can we change the code we're generating to better use that processor?
+									So it's been kind of this fun interaction where we start in one place and look at the other side.
+									And when we're on the other side, we go back to the first place.
+									You know, if we restart a software problem, it became a hardware problem, then it became a hardware problem,
+									it became a software problem, we go back and forth. Right.
+									And so that's kind of the strength of our group has been looking at these things and not being afraid to kind of,
+									if need be, dive in, you know, OK, we've got to go invent a new graph problem.
+									OK, fine, we'll go invent a new graph problem. And so that's kind of what we've been doing.<br></br>
+
+									Q: Great. Yeah, I think these next two questions were, and we won't go through all of these,
+									were about both, you know, what motivated you to switch from graph processing to simulation tools and speaking shortly about GAP. To some extent, you've already talked about the fact that it was kind of just this natural outgrowth of that effort. But yeah, could you talk a little bit about your graph processing work?<br></br>
+
+									A: Yeah, so maybe it's better to start a long time ago.
+									So in grad school, listening to a lot of folks in the industry, I became really excited about hardware acceleration.
+									Like this is like clear to the future where, you know, Moore's Law wasn't anywhere going to end anytime soon,
+									but we were, you know, it was already obvious in our scaling and stuff.
+									So it was all about hardware acceleration.
+									So I went shopping around as a grad student trying to find, OK, what domain am I going to build an accelerator for?
+									And kind of arbitrarily, I said, how about web browsers? They seem important.
+									You know, they're on mobile devices. They're important. So let's do web browsers.
+									And then fortunately, in my lab, I had a colleague who was actually parallelizing the web browser.
+									I could talk to him. This is Leo Majerwicz. He had a lot of cool expertise.
+									And one of the problems he had trouble parallelizing and dealing with was actually involving a web page layout,
+									which actually is a tree traversal to try and figure stuff out.
+									And so through him, I kind of got into these tree problems.
+									And then I generalized it and then the graphs and also looking at graphs.
+									Part of what the student appealed to me was that at the time, graph algorithms were extremely slow on current hardware.
+									So I thought, oh, this is, you know, a lot of room to improve for acceleration.
+									This is a good opportunity. So I dove into that.
+									And as soon as I followed my PhD work, the goal was always to build graph hardware.
+									And most of the time I had a good idea. I figured out how to do it in software.
+									And so as a point of view for actually shipping something, yeah,
+									I have some unfinished hardware designs in Chisel from, you know, now 10 plus years ago.
+									But yeah, I know a lot of ideas able to kind of package up in software.
+									I also, of course, did a lot of, you know, open source stuff for the RISC-V group.
+									And that was kind of fun to kind of, you know, be involved with that.
+									But anyways, I developed this expertise of, you know, making graph algorithms go fast.
+									And that was kind of fun. And even within the HPC graph community,
+									by having a stronger computer architecture background and less of a math background,
+									that was an advantage for me to kind of really squeeze out performance for these applications.
+									And then, yeah, if a postdoc had a chance to make my own problem, like, oh, wait,
+									I could use my expertise in making graphs go fast to try and make hardware go fast.
+									And that was kind of a fun crossover. I'm sorry.
+									<br></br>
+
+									Q: No, that's fantastic. Great. Thank you.
+									Okay. So you briefly touched upon your experience with RISC-V.
+									Obviously, you have a bit of a pedigree there.
+									What did early RISC-V look like? How did it develop to the present?
+									And what do you think, like, the future of RISC-V is going forward?<br></br>
+
+									A: So early RISC-V was something my colleagues were working on.
+									I heard about it within, like, a week of the idea.
+									So it was summer 2010. I was interning, but I was not very far away.
+									I was at Nokia Research in Berkeley, which their office is actually even closer to my apartment than campus.
+									And then my colleagues were, you know, I'd see them at night for dinner or whatever, and we'd catch up.
+									And so, yeah, they're like, we're going to make an RISC ISA.
+									And so that was kind of the starting point.
+									You can look into RISC-V for me for what they did.
+									But, you know, as a group, we were aware of what they were up to.
+									And occasionally they would call us saying, oh, I have just one little issue.
+									How do you think we should solve this? Or here's two ideas. What do you think of these two things?
+									And then, yeah, I don't know when I first started doing RISC-V related work,
+									but I would imagine, you know, maybe not until at least 2012 or 2011.
+									Like they did a fair amount of work for a while.
+									And they kind of, you know, did a lot of heavy lifting.
+									They wrote the spec. They got the first compiler running.
+									They got the first simulator running. They wrote the first cores.
+									And so they did a lot. And then us in the group kind of started just jumping on board.
+									Right. And it was kind of fun because, you know, we're all very excited about open source.
+									And it's a chance to kind of contribute.
+									And as RISC-V gained momentum, it was kind of realizing, oh, wait,
+									here's a chance to do something kind of, you know, useful.
+									And I think, you know, looking back, of course, it's grown far, far, far larger than any of us could have ever imagined.
+									Me, as a grad student, we're pretty excited to make something people would use.
+									Because, you know, most grad student code, unfortunately, is, you know, not typically adopted very often.
+									We want a person who's, like, using it to compare against you to write a paper and get it published.
+									But, like, that's just kind of where it ends.
+									And the idea, very early on, we had people talking to us, you know, oh, we want to use RISC-V in our course.
+									Or, we're a tiny startup. We can't afford an extra license.
+									We want to use RISC-V for our chip to get out there.
+									And then, you know, things start happening.
+									We're also starting to get talked to by big companies, right?
+									And, like, why do big companies want RISC-V?
+									Same reason everyone else does.
+									They want a course.
+									They want a simpler ISA.
+									They don't want the licensing fees sometimes.
+									And so they all have their own motivations.
+									And so, yeah, by the time today in the talk of referring to 2014, that was kind of a key inflection point.
+									That was, you know, when we did a big intentional publicity push.
+									You know, we all were wearing, as we teachers said, hot chips trying to, you know, go around and tell people about RISC-V.
+									We released a lot of IP that year.
+									So the FPGA Zinc repo came out that year.
+									There was an article that the faculty involved wrote called something like the Case for Free and Open ISA, something like that.
+									And that was published in Microprocessor Reports, which was kind of like going into the lion's den.
+									And then they did it.
+									They, you know, deliberately started a fight and went to the people that was giving the most pushback.
+									And so that's kind of took off.
+									And then trying to imagine RISC-V going forward.
+									Well, it's gone to the point now where a lot of the critiques of RISC-V, oh, you know, it's a small little thing.
+									You know, it's just Gradware.
+									No, it's not Gradware.
+									It's heavily adopted.
+									Oh, well, you know, RISC-V is nice, but there's, you know, nicer support tools, development tools, verification tools for RMS for RISC-V.
+									That graph is rapidly shrinking, right?
+									So for a lot of companies, a lot of users, the question is, you know, why not RISC-V?
+									It's not, you know, could we use RISC-V or should we even consider RISC-V?
+									Now it's why not RISC-V?
+									I mean, the landscape's already changed dramatically.
+									Yes, I think, you know, given that change in the environment, I see a positive outlook for RISC-V.
+									That being said, it's also become like a very massive, you know, worldwide thing of a lot of people in the foundation, a lot of, you know, groups making different ISA extensions, specifications, et cetera.
+									And so it's not, you know, any one group anymore.
+									It's this massive worldwide thing.
+									Oh, yeah, we're under this RISC-V label.<br></br>
+
+									Q: This is kind of a little bit more high-level one, but I'm interested to see who submitted this one.
+									What are the important steps at creating blazing fast software and hardware?
+									And they have a little smiley face.<br></br>
+
+									A: Like I said earlier in the call, right, trying to figure out what is the essential work versus what is the unessential work, right?
+									And so this is, I think, part of the success of my group is when we look at applications, even though we don't always make custom hardware,
+									looking at it from the perspective of what would it take to make custom hardware, I think, really makes you think a lot about the fundamental thing you're doing in the algorithm, right?
+									So, for example, you know, at a high level, a lot of accelerators probably need to work on some external memory, right?
+									You have some fast on-chip memory, you can do cool stuff.
+									At some point, you have external memory.
+									So thinking a lot about what is your data movement?
+									What is your locality?
+									You know, how do you kind of address those issues, right?
+									Where for data locality, of course, that's, you know, how you reuse stuff and reduce your off-chip memory bandwidth.
+									But then there's also recognizing your parallelism.
+									How do you recognize how to get more things in flight?
+									And so that kind of hardware design discussion really puts in sharp contrast what is the key aspects of the computation.
+									And then you recognize, oh, wait, if I did things in this way, I can do it this way and, you know, perhaps be more efficient.
+									So it's kind of the key thing.
+									But then, you know, there's some engineering and some, you know, black magic in there, too.
+									For example, you know, we do frequently profile our code performance counters and understand what are the bottlenecks.
+									A large part of my approach is constantly having code running and measuring it, right?
+									It's one thing to, you know, write code the first time, but usually the fast code is a result of many attempts.
+									For example, in the graph community, I'm probably best known for my breadth-first search algorithm.
+									That was like my 20-something implementation of breadth-first search, right?
+									So I'd written a couple, and then I thought there's a way to maybe improve something here.
+									And then I just kept writing different ideas out.
+									And then every time you had one, you could see why it did or did not work and measure it, see if you could learn something from it, and write another one.
+									So, you know, trying things out but also failing fast and moving on is an important step.
+									And so, yeah, it's an iterative, adaptive process.
+									But, you know, keep running, keep measuring, keep looking for what's going on, trying to understand what's going on, what are the key bottlenecks.
+									And, yeah, sometimes you find something where there's a bottleneck that perhaps wasn't appreciated by prior work, and then you can recognize it.
+									Or in the case of algorithms, a lot of times there is a redundancy, right?
+									Where there's a certain component where the algorithm kind of blindly computes.
+									And it turns out, you know, you can maybe reuse this partially if you recognize the right structure.
+									Or you can use some sort of, you know, conditional to recognize when to skip over something.
+									And so, yeah, that's kind of a, you know, four-minute summary of our approach.<br></br>
+
+									Q: Great. I like it. Okay, this is an interesting and certainly a hot topic. What do you think the positioning, the position of the open source community should be vis-a-vis generative AI and generative models?<br></br>
+
+									A: I'm not sure this is under the open source community's control, is my short answer.
+									I think there will be some of these models within the open source community, right?
+									I think in some ways having these open sources, you know, perhaps less concerning than if they're closed source, which is, you know, likely to be the case, right?
+									You know, I'm not, by no means, an expert on large language models or any of this kind of generative AI.
+									But, I mean, some of these require such astronomical resources to train, you know, the course's issue of equity, right?
+									Where you could have really talented researchers at universities, but they can't, or even outside the university system, of course, and they can't, you know, get their ideas realized.
+									And so we're kind of at the mercy of what these companies find interesting, right?
+									And so, yeah, whatever they find interesting, you know, how much power or carbon they're willing to burn through for these models.
+									These are all kind of big issues.
+									But with regard to open source and these models, yeah, I mean, I think, you know, I think if they're open source, it's perhaps better if they're not open source.
+									But, I mean, I also don't think open source has the ability, for example, to prohibit them or hinder them if they wanted to do that, which is what some people are calling for.
+									I think, you know, open is open, right?
+									Once it's out there, it's kind of hard to turn it around.<br></br>
+
+									Q: Great. And we'll just wrap up with a fun little question that we've been asking everyone.
+									Do you have a favorite open source license?<br></br>
+
+									A: Oh, favorite open source license.
+									I don't have strong opinions.
+									I think in grad school, because I was at Berkeley, I naturally assumed BSD because I was, you know, oh, yeah, you know, that makes sense, right?
+									And then, you know, I only have a medium knowledge of different license details.
+									My colleagues in the industry, of course, tell me, please, please, please do Apache.
+									And I have tried a few times, and sometimes UC is not always as on board with that, and they kind of, you know, redirect me towards BSD.
+									But I think that's kind of what I can say about that.
+									I think in terms of favorite, not because I'm going to use it in work, because I think it's a funny name.
+									There is the acronym, which you can look up for the, you know, do whatever DF you want to do with the license.
+									And I always find that one's kind of funny, you know, as a license.
+									You know, it always makes me chuckle, because I think that's in people's attitude, right?
+									You know, I have this code.
+									I'm putting it out there.
+									I'm not trying to make a business.
+									I'm just, you know, have fun, right?
+									I think when folks become really controlling with it, that's kind of, you know, against the spirit of open source, right?
+									That's the issue.
+									And I understand the motivation for folks who did GPL.
+									They were thinking, okay, well, if folks don't return their contributions, they're kind of harming it.
+									But too many preconditions on the source, I feel like, in some ways, is someone that's hindering the openness about it.
+									So I guess I'm more permissive, more open, but I'm also a person that, you know, has a paycheck uttered in for my code.
+									So, you know, disclosing my biases, I guess.<br></br>
+
+									Q: Great. Well, thank you so much for your time.<br></br>
+
+									A: No problem. Appreciate it. Thanks for having me.<br></br>
+
+									</p>
+								<!-- <p>Nunc quis dui scelerisque, scelerisque urna ut, dapibus orci. Sed vitae condimentum lectus, ut imperdiet quam. Maecenas in justo ut nulla aliquam sodales vel at ligula. Sed blandit diam odio, sed fringilla lectus molestie sit amet. Praesent eu tortor viverra lorem mattis pulvinar feugiat in turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ullamcorper tellus sit amet mattis dignissim. Phasellus ut metus ligula. Curabitur nec leo turpis. Ut gravida purus quis erat pretium, sed pellentesque massa elementum. Fusce vestibulum porta augue, at mattis justo. Integer sed sapien fringilla, dapibus risus id, faucibus ante. Pellentesque mattis nunc sit amet tortor pellentesque, non placerat neque viverra. </p> -->
+								<footer>
+									<ul class="stats">
+										<li><a href="index.html">Main</a></li>
+										<!-- <li><a href="#" class="icon solid fa-heart">28</a></li>
+										<li><a href="#" class="icon solid fa-comment">128</a></li> -->
+									</ul>
+								</footer>
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon solid fa-rss"><span class="label">RSS</span></a></li>
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
