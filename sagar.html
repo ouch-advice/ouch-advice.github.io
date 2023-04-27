@@ -1,0 +1,480 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Open UC Hardware</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="single is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">OUCH</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="#">Meta-Tutorial</a></li>
+								<li><a href="#">UC Advice Talks</a></li>
+								<li><a href="index.html">UC Interviews</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Lorem ipsum</h3>
+											<p>Feugiat tempus veroeros dolor</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Dolor sit amet</h3>
+											<p>Sed vitae justo condimentum</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Feugiat veroeros</h3>
+											<p>Phasellus sed ultricies mi congue</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Etiam sed consequat</h3>
+											<p>Porta lectus amet ultricies</p>
+										</a>
+									</li>
+								</ul>
+							</section>
+
+						<!-- Actions -->
+							<section>
+								<ul class="actions stacked">
+									<li><a href="#" class="button large fit">Log In</a></li>
+								</ul>
+							</section>
+
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">Open source tools as a strong foundation for new architecture research!</a></h2>
+										<p>Interview with UC berkeley PhD Student, Sagar Karandikar</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2023-04-01">April 1, 2023</time>
+										<a href="naz.html" class="author"><span class="name">Nazerke Turtayeva</span><img src="images/naz.jpg" alt="" /></a>
+									</div>
+								</header>
+								<span class="image featured"><img src="images/firesim.png" alt="" /></span>
+								<p>
+									Q: What makes you to wake up in the morning or stay up late?<br>
+									A: I really just like building things that work and then seeing other people use and benefit
+									from them.
+									I think it's really cool with Firesim, for example, we sometimes just get users that
+									they didn't ask us anything and we just see this amazing paper appear.
+									That's kind of the highlight of everything I do, I think, is seeing other users able
+									to do really cool stuff with it.<br><br>
+
+									Q: Yeah, definitely.
+									We do work mainly with OpenPiton and
+									when you gave a presentation yesterday, I was like, oh, that is a cool alternative,
+									but don't tell Jon (laughing).
+									Yeah, it's so cool.
+									Can you tell me the infrastructure of the Berkeley projects here?
+									Because there's Shipyard Boom, Rocket Ship, Firesim, what are the differences in between? <br>
+
+									A: I think they're all kind of, it sort of depends where the project started.
+									I would say, I was also an undergrad at Berkeley, so I kind of grew up in RISC-V growing up.
+									So that picture that I think, I forget who showed it this morning, it might have been
+									Scott, with the RISC-V.<br><br>
+
+									Q: Oh, yeah, yeah, I saw his presentation.<br>
+
+									A: So I'm in that picture as an undergrad.
+									And so, yeah, I was there at the first hot chips.
+									And so my entire undergrad research experience was basically all this amazing RISC-V stuff
+									happening around.
+									And so that's where things like Rocket Ship initially came from, and all that got open
+									sourced.
+									And so I saw all that happen, same thing with FPGAs Inc., like Scott talked about this morning.
+									And so then kind of that generation of grad students graduated, and Rocket Ship got open
+									sourced and then maintained by SiFive and all of that.
+									But on the Berkeley side of things, basically, we needed sort of like, so we started doing
+									a bunch of projects like this new generation of grad students.
+									So like Rocket Chip continued to be used, even though it wasn't really maintained by
+									Berkeley anymore.
+									But Boom was also built primarily or initially by the previous generation of grad students
+									in parallel with Rocket Chip.
+									Then the student working on that, Chris Celio, also graduated.
+									And so that was also in open source, but I think not really anyone super maintaining it
+									for a while.
+									And then I started, I got through classes and stuff and started doing real research.
+									And that's when I started working on FireSim.
+									The initial FireSim work, we wanted to model data center systems.
+									And so it meant we had to boot Linux, we needed all the IP to work together well, all the
+									software to go with it.
+									So what sort of ended up happening was that FireSim, even though it's supposed to be
+									like a FPGA simulator emulator, kind of became like the top repo of a lot of the Berkeley
+									architecture research stuff.
+									Because it had, I wrote tons of documentation to when we had the ISCA paper and open source
+									everything.
+									I wrote a bunch of documentation so that people could actually use FireSim.
+									And then that necessarily made it so that I had to make it so it was very easy to build
+									Linux for S5 systems or build other programs, just install the whole tool chain, all that
+									stuff.
+									So we ended up with tons of automation in FireSim that really probably didn't belong
+									in FireSim.
+									And in the meantime, people were starting to work on a bunch of other big projects that
+									we had kind of a new cohort of grad students come in.
+									So they started working on things like the ML accelerators, like the vector accelerators,
+									all that sort of stuff.
+									And so at one point, I was basically like, all right, we have all of these different
+									projects.
+									They are many times using FireSim as top because they want the cohesive infrastructure.
+									But FireSim shouldn't really be top.
+									And also from the external perspective, there are still kind of all these random projects.
+									It's like GitHub, UCB bar, and then a bunch of repos that nobody really knows what is
+									what.
+									So then that's when we started thinking about creating ChipYard.
+									And so ChipYard was basically designed to be like the real, here are all the generators
+									and all the flows, not just FireSim simulation, that you can do with all these things all
+									in this unified place.
+									It gives you a whole tool chain, IP, all of those flows put together.
+									So that's where ChipYard came from.
+									And then, yeah, and then so now a lot of those things like FireSim, Boom, RocketChip, all
+									of those are sub-moduled in ChipYard.
+									So an external user starting out should almost always start with ChipYard as the top level
+									repo.
+									And that's how they get started with everything.<br><br>
+
+									Q: OK, so that's cool.
+									Yeah, there are so many things are happening.
+									So what do you think, I guess, makes it, I guess, OK, how can I find my question?
+									So what is the mission of the, I guess, Berkeley open source projects, I guess, which is different
+									from the Santa Cruz?
+									Or I guess, what is similarity and what is the unique things that you guys are aspiring
+									for?<br>
+
+									A: I think probably it's, we are in kind of like, I think the core difference is probably like
+									the chisel world versus the not chisel world.
+									I think everybody is building really cool stuff.
+									Everybody has users.
+									Like, I think it's more just like the approach, whether it's kind of like working with a tool
+									chain that's like more closely aligned with what industry currently uses versus like a
+									tool chain that's, you know, has different goals, like maybe easier ways to express generators
+									and stuff like that.
+									So, like, we kind of inherited that and continue to build on that.
+									And so, like, things like FireSim, like, they're not not possible with Verilog, but it's substantially easier for us to do a lot of the, like, cool tricks we can play, like debugging designs
+									and stuff, because we're in that ecosystem.
+									So I think that's probably the main difference, I would say.<br><br>
+
+									Q: Also, like, in the, like, before, like, I mainly heard about the chisel, right?
+									But then this presentation, I guess, there was a mention of the FRRTL.
+									So what's the difference between?<br>
+
+									A: So chisel is, like, the actual language that people will, you know, write hardware designs
+									in.
+									So a hardware description language, basically, that's embedded in Scala.
+									Fertile is an IR.
+									So, like, before there was, like, Circuit and all of that.
+
+									So FRTL was basically a way to specify the, like, IR used by chisel so that we could,
+									you know, have, like, a well-defined way to write compiler passes over designs.
+									Oh, okay.
+									And so FRTL was that intermediate language.
+									So, like, a lot of the passes that FireSim does to transform a design into a simulator
+									are written in FRTL.
+									And then we have FRTL passes for, you know, doing other things like, you know, like deduplicating
+									stuff and that sort of stuff.<br><br>
+
+									Q: So I think so you said that now you have built all your platform.
+									Now your next step is to explore the data centers more and so on.
+									So what is your vision, I guess, on that extent?<br>
+
+									A: So, so far what I've been doing, so we kind of, we shipped FireSim.
+									Like, we did a little bit of follow-up work on FireSim.
+									Then I kind of pivoted back to my original goal was to do this data center research stuff,
+									like you said.
+									So we've been working with Google on basically profiling data center taxes.
+									So, like, overheads in data center workloads or just any workload when you put in a data
+									center and overheads in the, like, software price it has to pay to play nice.
+									You know, doing things like serialization, deserialization, or compression, or encryption,
+									RPC, that sort of stuff.
+									So basically, like, what we're doing there is, like, on the Google side of things, of
+									course, we like profile how those data center taxes are used at scale.
+									But then, like, Google has really allowed us to do a lot of cool stuff kind of in collaboration
+									with the open source part of things, open source hardware part of things, where on the
+									Google side of things from, you know, Google's fleet, we can derive insights.
+									And internally at Google, we generate benchmarks that are then open sourceable.
+									Then once we open source those benchmarks, then we can kind of play with the whole open
+									hardware world.
+									So then on the, you know, Berkeley slash open source side of things, we're basically, you
+									know, building accelerators for some data center tax, actually running the Google-derived
+									benchmarks and showing, you know, overall speedups, pushing it through, like, CAD tool
+									chains, all that stuff.
+									So we've done that for protobuf serialization and deserialization so far.
+									We had a paper in micro, like, two years ago.
+									And we have an upcoming ISCA paper on compression following sort of the same format with Google.<br><br>
+
+									Q: I think I heard about that paper. So that's cool.
+									So, like, when it comes to profiling, right, like, usually, I guess, how much time does
+									it take to do all that at scale?<br>
+
+									A: It varies.
+									So in certain cases, we have to add new infrastructure to do the profiling.
+									In other cases, we, like, the profiling is, like, a tool that's well-known, like, GWP,
+									Google-wide profiling was published probably, like, ten years ago now.
+									That's how we get, for example, you know, standard CPU profiles and stuff like that.<br><br>
+
+									Q: And I guess also you have to be careful, right, so when you do profiling, the profiling itself
+									doesn't put any overhead into it?<br>
+
+									A: So GWP has, like, a standard sampling mechanism that, you know, so there's, like, a GW team
+									at Google who is, like, you know, making sure that, you know, we're not sampling too frequently,
+									that machines get, you know, fairly randomly sampled and stuff like that.
+									So we don't have quite the same problem.
+									Like, it's not, like, I'm not sitting there.
+									I'm, like, one machine running perf myself where I can mess that up.
+									So that's, like, nicely abstracted away from us.
+									But, you know, like, we can have problems, like, if we're adding an extension and, like,
+									we have to be very careful that when we are adding, like, new hooks for profiling, we
+									are not introducing too much overhead that affects the, like, actual workload that's
+									trying to run.<br><br>
+
+									Q: So also my initial question was, like, how, like, does it take days or, like, hours?<br>
+
+									A: Oh, yeah.
+									So it kind of depends.
+									So if we have to deploy something new, then it has to, like, go through, like, a safe
+									deployment process.
+									So that can take a long time.
+									I don't know if I can give, like, exact numbers.
+									You know, I would say, like, let's say six months to do, like, a solid job profiling.
+									So that it's paid.
+									But that's not, like, six contiguous months.
+									That's, like, one day a week, six months.
+									And then, you know, we're working on the hardware.
+									We're working on all sorts of stuff on the side.<br><br>
+
+									Q: So, like, what is your vision, I guess, on how things can be done?
+									Like, I guess, like, I think I talked quickly with Abraham.
+									So he was mentioning that, oh, like, building, shifting vertical stack into horizontal stack.
+									Yeah.
+									I mean, how do you see accelerators in that realization?
+									Or you think just GPGPUs or other stuff would be good enough?<br>
+
+									A: Yeah, so I think there's a couple of things.
+									So one of the things we found in some of these data center taxes, a lot of the, like, workload granularity is a little too small to push over, like, PCIe to some big beefy thing, like a GPU or something. And also, many times, the, like, hardware we end up building is extremely small.
+									Like, 0.1 millimeters squared or something.
+									So compared to Xeon, it's basically meaningless.
+									And so in that case, like, for these sort of systems accelerators, it may make sense to just put them near the core.
+									For something like protobuf, it's, like, the kind of application character, the workload characteristics also kind of promote that.
+									Like, a lot of times, you are, you know, for serialization, for example, you're taking this, like, big C++ object that's in memory, and you're, like, picking out a bunch of small pieces from it. And it doesn't translate well to, like, doing those accesses over PCIe or something like that.
+									Like, one of the things we found in the Google profiling, I don't remember the exact numbers off the top of my head, but they're in the paper.
+									It's, like, something like over 50% of, I think it's over 50% of message, or no, over 95% of messages in Google's fleet have less than 50% of their fields populated.
+									So that means, like, if you're looking at the C++ in-memory object, less than half of it is populated with real data.
+									So if you did, like, a bulk copy to, like, some remote buffer or some buffer on a PCIe device and then picked out the pieces, like, you're wasting 2x.
+									And then other times, like, if you're serializing, like, a string, you're doing, like, multi-step kind of pointer chasing kind of stuff.
+									So in that sense, like, so yeah, so that's one part of the question, I guess, like, the placement thing.
+									I think the longer-term vision here is, yeah, so, like, Abe is approaching the problem more from a vertical perspective.
+									So he's doing data analytics, and he's looking at that vertical.
+									I've been looking primarily at the horizontal.
+									So, like, the data center taxes have been shown to be, like, 30% of all fleet cycles.
+									So to make the horizontal work well, though, like, yeah, the, like, individual accelerators are great.
+									But basically figuring out how to stitch together the accelerators.
+									Is, I think, kind of the next interesting step is, A, how do we identify the pipelines between the accelerators in data center code?
+									Because, you know, as much as, like, as much as, like, conceptually people like to think, like, oh, I'm sending a message,
+									so it's going to get serialized, then compressed, then encrypted, and so on.
+									Really, it's not really called like that, right?
+									Like, there might be other stuff happening in between and that sort of stuff.
+									So, like, we did a study in our, so in our upcoming compression paper, for example, we're looking at, you know,
+									in terms of other data center taxes.
+									So we looked at, like, serialization, for example, and whether we could attach the two together, like, directly.
+									But basically we found that, like, you know, a large proportion of cycle spent in compression come from file formats.
+									Those file formats, a lot of times, accept serialized or serialized or un-serialized protocol buffers.
+									And so, like, ideally you would say, okay, I took in an un-serialized protocol buffer.
+									I'm going to serialize it and then immediately compress it.
+									But in reality, there's a bunch of, like, file format bookkeeping happening in the middle.
+									You would need to either put in the accelerator, which is bad because you don't really want hard code, like, file format and accelerator.
+									Or you need to do it in the CPU and then have the accelerators close together and have, like, collaboration between them.
+									I guess, yeah, like, the problem comes from tightly coupled or you're going to place everything in a single SOC or whatever, right.<br><br>
+
+									Q: Yeah, this actually gives me some new perspective because I'm also trying to investigate the same problem.
+									So you definitely know about cohort, right?
+									Because, yeah, in January we collaborated on that.
+									So, like, now we think about what will come next because we also want to solve the question how we can communicate accelerators,
+									the regular accelerators to the system service accelerators.
+									For example, like, malloc file system or page fold.
+									And we say that, oh, what about using just queues and to send the stuff.
+									But now you are saying that, oh, there is actually some connection between accelerators.
+									So what you can do with that. Maybe I can reach you out in the future.<br>
+
+									So you said about the protobuf, right? So is there anything different that you already mentioned that people should consider when building, I guess, protobuf accelerators?
+									Or, like, what are the interesting things when you build a protobuf accelerator?<br>
+
+									A: Yeah, so I think one of the biggest things was getting the interface between software and hardware correct.
+									And I think to do that, you kind of need a perspective of how applications are using these things and how much optimization work has gone into the protobuf library.
+									So there was some prior work, for example, that, like, their API between the software and the protobuf or kind of more general serialization accelerator was to, you know, as you basically add fields to the protobuf, you populate some data structure.
+									And that data structure basically contains, like, indexes or, you know, type information and stuff that you then hand off to the protobuf message.
+									Or, sorry, the protobuf accelerator.
+									But the problem is, like, people have very, like, very, you know, cleverly optimized the protobuf software code so that, you know, when you, as an application, do something like set a field in a protocol buffer, it's very few instructions.
+									Sometimes it can just be, like, a load or a store.
+									And when you now suddenly add a bunch of code around that to manage a data structure that's later going to be fed to an accelerator, you're, like, blowing up the, you know, amount of time spent in those sets by, like, 10x or something.
+									Even if that were, like, a simple linked list or something, that's, like, a ton of code to manage that.
+									So, one thing we could do, because, you know, we kind of understood, like, what is the impact on applications of, you know, adding a bunch of code to a setter, for example, is that we change it so that our API or contract between hardware and software was that, you know, we would have, you know, statically generated tables that are generated at compile time that contain all the type information.
+									And then we can play other tricks with, like, having sort of these, like, bit vectors that say whether something is present or not.
+									And then we have this, like, base and bounds mechanism.
+									Too much in the weeds.
+									But basically to, like, restrict the, like, range of field numbers and how field numbers are defined and stuff like that.
+									And if you don't have fleet data, then comparing these two approaches is basically just, like, you know, arguing with each other about, you know, which one's better.
+									But because we have fleet data, then we could show that basically looking at field number distributions in the fleet that our approach was, like, far more computationally efficient for, like, 95% or greater of messages in Google's fleet.
+									Because we had profiling.
+									There's, like, a whole section in the paper about the gist.<br><br>
+
+									Q: Yeah, so I guess another question would be, so, like, you extensively work with FireSim simulation and all this environment, right?
+									So what do you think is the future of all the simulation tools?
+									What will come next, I guess, after using Amazon services or data center?<br>
+
+									A: Yeah, so I think the big thing, so with FireSim, we kind of went in the reverse of everyone else, which is, like, everyone else was using local FPGAs at the time.
+									Yeah, yeah.
+									And we kind of immediately went full cloud, and now we're kind of working again towards having support for on-premises FPGAs.
+									So, like, for a long time, a huge advantage of having FireSim in the first place was having, like, easy access to tons of cloud FPGAs.
+									So, like, I mean, this happens all the time with, like, paper deadlines for us.
+									Like, you know, it's always easy to add more and more and more features to the RTL up until the paper deadline.
+									At some point, you have to run your evaluations.
+									But it's very useful to, you know, even with this compression paper, we ran 256 FPGAs in parallel, like, a few hours before the deadline to collect all our results, right?
+									And, like, the paper just wouldn't have gotten submitted if we didn't have that capability.
+									So that's why, like, we focus super heavily on the cloud, both for that reason and kind of, like, you heard Scott talk about FPGAs Inc. this morning.
+									So, like, I had, like, a pretty good understanding of how bad it is to support a local FPGA platform for a bunch of open source users.
+									I mean, it's just, like, it's very complicated to get people, like, you know, even just get the FPGA plugged into their machine, like, running the drivers directly and stuff.
+									Yeah.
+									So that's why we, like, decided to focus all in on cloud when we originally launched FireSim.
+									And, of course, we needed a number of FPGAs for the kind of target workload, the data center stuff back then. But we ended up building, like, tons of automation to manage all of that.
+									And so, like, kind of the reason it took a long time to get back to local FPGAs is we didn't want to lose all of that automation when we added local FPGA support.
+									Like, it wasn't just a matter of, like, oh, no, like, let's just port the shell onto this other board, plug it into our laptop and run the stuff.
+									And so, like, over the past couple of years, there's been a bunch of re-architecting of the FireSim manager so that it could, like, properly support all of these things.
+									So, like, today, a local FPGA user who's using FireSim, like, we added support for that, like, a year ago. That user basically can, you know, very easily switch between having, you know, hundreds of cloud FPGAs or, you know, the one FPGA in the machine under their desktop.
+									And they're running the same commands on their one machine under their desktop.
+									And, you know, you can change a configuration flag and move back and forth.
+									I think so, like, that's, like, that's to answer your cloud platform question.
+									I think otherwise, going forward, kind of the big thing is partitioning design.
+									So, like, so far, we've had designs of a size where, you know, we could do the work we wanted without really needing to partition designs.
+									We're adding accelerators to a core.
+									And, you know, if the accelerator is designed well, it's small and it doesn't exceed the FPGA size because they're pretty large FPGAs on, like, F1, for example.
+									But people are now, you know, even in research, we're hitting this problem where we're trying to model the scale of systems that don't fit on one FPGA.
+									So, there are a bunch of folks working on, you know, how to partition designs efficiently across multiple FPGAs.
+									So, like, we have the kind of baseline infrastructure present from the original FireSim work, but that was, like, manually partitioned, right?
+									Like, even though we modeled it as, you know, one giant system with, you know, synchronized clocks, it was still, like, we said, here's an SOC, here's the link between them, and, like, map it down to the FPGAs.
+									And now we need to basically, you know, take one big blob of RTL, partition it, and map it down to FPGAs.<br><br>
+
+									Q: So, I guess I was kind of just, like, jumping through these different cool ideas that you were talking about.
+									And so, one of them was also, like, again, accelerators and horizontal interface, right?
+									So, like, do you think that there is some need for, like, compiler intrinsic to be in?
+									Because there are some folks with people that will generate your code not for HDLs, but software, too.
+									So, yeah, so, like, are you guys doing some work to, like, to change some compiler intrinsics so that we'll change, like, mappable here to accelerators?<br>
+
+									A: Yeah, so, I think we haven't gotten there yet.
+									I think so far we've kind of relied on the fact that, you know, if you're trying to just be a drop-in replacement for whatever library is providing the data center text.
+									So far we've, like, our protobuf accelerator is essentially just, like, a literally, like, software, from the software's perspective, a drop-in replacement for a call to the, like, protobuf software libraries.
+									I think that works fine if you have, like, software coordinating everything, like, as it is now, right?
+									Like, just you're making library calls throughout the stack to compression or whatever.
+									Like you said, like, we need better techniques to do this if we are starting to think about, you know, how can we look at an application automatically, like, pull out those sorts of calls to, you know, whatever primitives we have actually taped out on our SOC, and then issue calls to them or even just, like, build, construct, like, pipelines out of them.
+									So, I think that's probably, like, where we will go.
+									But, yeah, there's nobody, nobody is actually, like, working on that immediately.<br><br>
+
+									Q: Yeah, I mean, it will take time, and we have only so much PhD time.
+									Yeah, I have the last couple of minutes.
+									What is your advice as a senior student to early PhD students?<br>
+
+									A: So, I think my biggest advice is probably, like, you should think about what you want sort of your dissertation to be about.
+									And the kind of advice I've heard from a lot of people is, like, architecture research is almost always, like, 90% building infrastructure, and then you kind of do the extra 10% evaluation for the idea you want, right?
+									Because if it were easy to evaluate, someone would have already evaluated the idea already.
+									So, that's why usually you need to build all the infrastructure first.
+									And, like, that sounds daunting, right, if you want to, you know, publish papers and all that stuff.
+									The additional advantage I found with building infrastructure early on in your PhD is that, like, you can spend, you know, a couple years building infrastructure, you know, you write the paper about that infrastructure and you start using it.
+									But then on the side, you know, assuming you open source it and start supporting the community around it, like, you'll get a lot of, you know, satisfaction on the side from supporting users, like, hearing about what they're building and all that.
+									So, like, when the, you know, actual research problem you're working on gets really hard, you're not making progress, you know, there's always this other stuff to work on.
+									And, like, you always get that, you know, kind of, like, instant dopamine hit from, like, merging a PR, you know, working on some engineering thing that's, like, that's, you know, fun to just hammer out some code.
+									So, like, it makes it very easy to, like, always be productive, even if you're kind of stuck on, you know, the real hard stuff you're trying to figure out.
+									You're always doing something that is still, you know, like, concretely productive and helping other people.<br><br>
+
+									Q: Yeah, I guess it's time for us to end, but I have other questions, too, so I guess I'm going to bother you later.
+									Thanks for your time.
+
+
+									</p>
+								<!-- <p>Nunc quis dui scelerisque, scelerisque urna ut, dapibus orci. Sed vitae condimentum lectus, ut imperdiet quam. Maecenas in justo ut nulla aliquam sodales vel at ligula. Sed blandit diam odio, sed fringilla lectus molestie sit amet. Praesent eu tortor viverra lorem mattis pulvinar feugiat in turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ullamcorper tellus sit amet mattis dignissim. Phasellus ut metus ligula. Curabitur nec leo turpis. Ut gravida purus quis erat pretium, sed pellentesque massa elementum. Fusce vestibulum porta augue, at mattis justo. Integer sed sapien fringilla, dapibus risus id, faucibus ante. Pellentesque mattis nunc sit amet tortor pellentesque, non placerat neque viverra. </p> -->
+								<footer>
+									<ul class="stats">
+										<li><a href="index.html">Main</a></li>
+										<!-- <li><a href="#" class="icon solid fa-heart">28</a></li>
+										<li><a href="#" class="icon solid fa-comment">128</a></li> -->
+									</ul>
+								</footer>
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon solid fa-rss"><span class="label">RSS</span></a></li>
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
