@@ -56,8 +56,8 @@ body {
 }
 
 mark {
-	background-color: transparent;
-	color: inherit;
+	background-color: #646464;
+	color: #f4f4f4;
 }
 
 input::-moz-focus-inner {
