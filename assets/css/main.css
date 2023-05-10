@@ -58,6 +58,8 @@ body {
 mark {
 	background-color: #646464;
 	color: #f4f4f4;
+	letter-spacing: 0.0em;
+	padding: 0 0.25em;
 }
 
 input::-moz-focus-inner {
