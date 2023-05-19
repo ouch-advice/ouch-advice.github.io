@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Open UC Hardware</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="single is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">OUCH</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="advice.html">UC Advice Talks</a></li>
+								<li><a href="interviews.html">UC Interviews</a></li>
+								<li><a href="meta.html">Meta-Tutorial</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+				<section id="menu">
+
+					<!-- Search -->
+						<section>
+							<form class="search" method="get" action="#">
+								<input type="text" name="query" placeholder="Search" />
+							</form>
+						</section>
+
+					<!-- Links -->
+						<section>
+							<ul class="links">
+								<li>
+									<a href="meta.html">
+										<h3>Meta-Tutorial</h3>
+										<p>Conclusions from Meta-Tutorial organized as part of ASPLOS'23, Vancouver, Canada</p>
+									</a>
+								</li>
+								<li>
+									<a href="advice.html">
+										<h3>UC Advice Talks</h3>
+										<p>UC Advice Talks from Open Source Hardware LatchUp conference and beyond</p>
+									</a>
+								</li>
+								<li>
+									<a href="index.html">
+										<h3>UC Interviews</h3>
+										<p>Interviews with UC people about Open Source Hardware and its impact</p>
+									</a>
+								</li>
+							</ul>
+						</section>
+
+				</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">Data Movement and Heterogenous Systems</a></h2>
+										<p>An Interview with UC Davis Professor Jason Lowe-Power</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2023-05-19">May 19, 2023</time>
+										<a href="parker.html" class="author"><span class="name">Parker Murray</span><img src="images/parker.jpg" alt="" /></a>
+									</div>
+								</header>
+								<span class="image featured"><img src="images/gem5.gif" alt="" /></span>
+								<p>
+									Q: Let's get started. Let's just have you do kind of a general introduction.
+Speak shortly about your lab and your work. And I guess what would you would say the main
+thrust of your research is centered around?<br></br>
+
+A: Yeah. So I am an assistant professor here at UC Davis. I've been here for almost six
+years now. My research mostly centers on optimizing data movement and heterogeneous
+systems. And I think of that very broadly. So during my thesis, my PhD, I was working
+on data movement between CPUs and GPUs. So heterogeneous compute. Lately, since I've
+been at Davis, we've been working on data movement between different kinds of memory
+technologies. So like non-volatile memory and DRAM or high performance DRAM and high
+capacity DRAM, or even now some of my more recent work has been looking at secure memory
+and insecure memory and trying to move data in and out of different security zones. So
+most of my research kind of concentrates on optimizing data movement. But then I also
+spend a lot of time working on research tools. So things like simulators, which enable us
+to do these kinds of research. And through that, I'm the project management committee
+chair of the GEM5 project, which kind of drives the development of the GEM5 simulator.<br></br>
+
+Q: Great. Great. Thank you. Yeah. So to your point on data movement, you recently had a
+paper on low latency memory, LLM, which I think was published last May. And I guess
+there's another term for LLM that's quite popular at the moment. But you talked about,
+I think, using photonics for a realization of low latency memory. Can you talk briefly
+about that work? I guess there's probably some people who read this that aren't super
+familiar with photonics. <br></br>
+
+A: Yeah, sure. So I guess briefly about silicon photonics. So the idea is that rather than
+transmitting data through electrical signals on a copper wire, we're instead going to be
+transmitting data based on the modulating light inside of a photonic waveguide or inside
+of a fiber optic line. The big benefits of optics are that you can have a single quote
+unquote wire, one optical waveguide or one piece of fiber, which can have many, many
+wavelengths of light in the same fiber. And so you can get much higher bandwidth. So each
+wavelength might be able to modulate, you might be able to modulate each wavelength at 16 to 32
+gigabits per second. So doing it at a rate of a few picoseconds for the modulation. And then
+you can jam 32 to 64 different wavelengths in a single waveguide. So you can have really high
+bandwidth communication via photonics. Now, how does this apply to memory? Well, we want to get
+data around the system really fast. And the other really cool thing about photonics is that unlike
+copper, the latency and bandwidth and power to transmit are mostly data independent. So fiber
+doesn't have the same kind of resistance properties that transmitting electronic signals and copper
+does. So you can move memory further away. And that helps with thermals and getting heat out and
+stuff like that. You move it further away and still get really high bandwidth. When I say high
+bandwidth memory. The idea with LLM was to take
+the photonics into the DRAM. So rather than using copper wires to move data from the memory
+into the processor, we're going to use optics. And that not only gives us higher bandwidth, but a
+really cool side effect of it was that it gives us much more deterministic latency. So rather than
+having to queue up for a long time in a memory controller, you can send a memory request and know
+exactly when in the future you're going to get the response. It enabled us to simplify a lot from the
+system design perspective.<br></br>
+
+Q: So like with photonics, so it sounds like you can integrate it into devices. So a big trend I
+feel like in the industry right now is these multi chip modules. Like is there potential for photonics
+to be the next the next big like on chip fabric with all that bandwidth?<br></br>
+
+A: Absolutely. I think that when we start talking about multi chip models, modules, or chiplets, that if you need
+high bandwidth between the chiplets, photonics is a really good design point. It enables you, you know, the
+using through silicon vias, the copper TSVs really limits the distance that you can communicate. And you end up
+having to put your chips really, really close to each other, or use expensive silicon interposers in order to do
+it. But if instead we're using photonics to communicate, you can really relax the physical constraints of these
+multi chip modules, and also get higher bandwidth at lower power between the modules.<br></br>
+
+Q: Awesome. Okay, so you you briefly touched on your
+involvement with GEM5. For those who don't know, GEM5 is a cycle-accurate CPU simulator. Can you talk a
+little bit, I guess, looking over some of your recent work you there was GEM5 GPU in 2014. That's not so
+recent anymore. And then recently, it looks like you guys did a cache controller model for optane memory for GEM5. Can you talk a little bit about your involvement with GEM5 in the past and where you see it heading in
+the future?<br></br>
+
+A: Yeah, so my involvement is kind of in two different veins. So one of the things that I've done in my research group, we
+use GEM5 for our research, and we contribute our research to GEM5. So GEM5 GPU back when I was getting my
+when I was getting my PhD at Wisconsin is an example of that, where I was doing research on CPU GPU communication. And so I
+needed a tool that had both a CPU model and a GPU model. And so I created a GEM5 GPU. And then the other work that you
+referenced is one of my students, Mary and Bobby is working on improvements to DRAM cache controllers. And so we needed a
+model of current DRAM cache controllers. So we could use it as a baseline and then build on top of it. And so she worked to
+build this in GEM5. And we've released that recently, as well. So that's kind of one vein of my involvement in gem
+five is making contributions to it on the research side. But then where I spend probably way too much of my time is
+actually leading the GEM5 project. And so I'm the project management committee chair of GEM5, right, which, you
+know, it's, I'd call myself the leader of the community. But really, what I do is heard the community. So it goes,
+everybody's involved in the ways they want to be involved with, and I try to keep them moving, right, some kind of path.<br></br>
+
+Q: So GEM5, obviously, one of many, you know, tools in a computer architects toolkit is
+they're, you know, building and validating designs. Where do you see ahead in the future? Like, do you see it more like, I
+guess, like, versus industry versus academia, like, where, where do you think GEM5 is headed in the future?<br></br>
+
+A: That's a really good question. I have a lot of different thoughts. I guess, first, let me give a little bit of history of
+GEM5. So GEM5, before it was GEM5, it was two different simulators. GEM5 is the combination of the M5
+simulator from Michigan, and the gems simulator from Wisconsin. And the M5 simulator is the combination of the
+M5 simulator from Wisconsin. And those two projects, gems, I think, was started somewhere around 1999. So almost 25 years
+ago now, at Wisconsin, and the purpose of that simulator was really to do cache coherence research. So it was about
+developing, so they developed this language called SLIC, which I don't remember what it stands for. But it's a language,
+it's a domain specific language to describe cache controllers. And they use this to do a bunch of, of the seminal cache
+coherence research in the late 90s and early 2000s. And then around the same time at Michigan, they started a simulator
+called M5. This was Nate Binkert, who unfortunately passed away a few years ago, was kind of the leader behind this
+project. And he was an amazing software engineer. And we wouldn't have GEM5 today without him. But he started the M5
+project. And the goal there was to do full system simulation. So they had all these cool architectural ideas that they
+wanted to look at. But they didn't have any way to look at both the operating system and the hardware at the same time. So
+they built the simulator that could actually, you know, at the time, it was written for the alpha ISA, but it could boot
+Linux on alpha. Oh, wow. And actually run any application. And so fast forward to 2011. Jim's, which was using Simics, which
+was a proprietary CPU simulator in the back end, kind of like QEMU, although it had some timing information or ways to get
+timing information out of it. The Wisconsin people decided that they didn't want to use Simics anymore. M5 had a really had had
+evolved to support basically any ISA and was still this one of the best full system simulators out there. And so they combined M5 with
+gems to make jump on. Gotcha. So this long history. The point that I'm trying to make is that it has been GEM5 for the first 10
+years of its life, as M5 and gems was very much an academic project. Then gems happened in 2011. And the contributions started to come
+significantly from industry. So arm became a really big player. Arm research was a huge contributor to jump by AMD became a really big
+player. They started focusing a lot on the GPU model because they were doing AP use and using it for like, you know, frontier and El Capitan.
+The first exascale supercomputers were designed in part using GEM5 by AMD. And many other companies started contributing a lot. And so it went
+from what was a relatively small academic focused project to this sprawling open source project with contributions from into from all over
+industry as well as academia. So then, fast forward to today, you know, the years after GEM5 became GEM5, we went through a lot of
+growing pains in the community, trying to create an open source community around this project. And I kind of took things over about six years ago when I
+came to Davis. And my goal was to create a community and try to push us from this academic focus project that was then ton of contributions from industry to
+something that'd be sustainable in the long term. So I kind of see the future of GEM5 as you know, I would love to see it as the place that people come bring
+their cool research ideas to come contribute to this community of developers and users who are doing computer architecture research.<br></br>
+
+Q: Great, I love that. Okay, moving on from some of the more specific questions, we'll go to some of the general ones that we're kind of asking around. So it's
+getting harder to count on on die shrinks, die shrinks and Dennard scaling and things for for computational advances. So in the future, we're going to need more
+clever architects, right? What do you see as the next great frontier in computer architecture? Especially given your position, it's such a crucial step in the process
+with your all your involvement in simulation?<br></br>
+
+A: Yeah, that's a really good question. I guess there's a lot of things that are really interesting. And I'll answer this from my personal interests. And I think that personally,
+what I'm really excited about is more and more hardware software co design. So looking at ways that we can, at the same time, change the software a little bit, change the
+runtime systems, change the operating system, and change the hardware to try to get these really big efficiency gains. Yeah. Specifically, I've been looking a lot of data
+movement. And so, you know, LLM was an example of just changing the hardware, and not really thinking much about what how the software could be using it. But I think
+there's really big gains to be made, especially in heterogeneous systems. If we can find ways to get the semantic information that the program or the programmer
+has, you know, the programmer, or program actually knows how the data is going to be used in the future. If you write an algorithm, you know what the future data
+access is going to be. If we can find a way to communicate that future data access pattern to the hardware, then the hardware can much more efficiently move data around. So a lot of my current research is
+trying to find the right interfaces and the right hardware mechanisms to enable this kind of hardware software co design of data movement.<br></br>
+
+Q: That's great. Thank you. And we'll just close out we're we're running out of time here. But we'll we'll close out with your favorite if you have one. Do you have a favorite open source license?<br></br>
+
+A: Oh, wow. I have the open source license. I tell everybody to use which is Apache v2. You know, my philosophy is use the most popular thing. The most popular thing is almost
+always the right option. And I think that's why Apache is a good license.<br></br>
+
+Q: Great. Thank you for your time. We'll we'll let you get back to your work. But I appreciate you hopping on with me for a few minutes.<br></br>
+
+A: Yeah, thanks so much.
+
+									</p>
+								<!-- <p>Nunc quis dui scelerisque, scelerisque urna ut, dapibus orci. Sed vitae condimentum lectus, ut imperdiet quam. Maecenas in justo ut nulla aliquam sodales vel at ligula. Sed blandit diam odio, sed fringilla lectus molestie sit amet. Praesent eu tortor viverra lorem mattis pulvinar feugiat in turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ullamcorper tellus sit amet mattis dignissim. Phasellus ut metus ligula. Curabitur nec leo turpis. Ut gravida purus quis erat pretium, sed pellentesque massa elementum. Fusce vestibulum porta augue, at mattis justo. Integer sed sapien fringilla, dapibus risus id, faucibus ante. Pellentesque mattis nunc sit amet tortor pellentesque, non placerat neque viverra. </p> -->
+								<footer>
+									<ul class="stats">
+										<li><a href="index.html">Main</a></li>
+										<!-- <li><a href="#" class="icon solid fa-heart">28</a></li>
+										<li><a href="#" class="icon solid fa-comment">128</a></li> -->
+									</ul>
+								</footer>
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon solid fa-rss"><span class="label">RSS</span></a></li>
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

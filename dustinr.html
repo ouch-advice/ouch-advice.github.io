@@ -1,0 +1,479 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Open UC Hardware</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="single is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">OUCH</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="advice.html">UC Advice Talks</a></li>
+								<li><a href="interviews.html">UC Interviews</a></li>
+								<li><a href="meta.html">Meta-Tutorial</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+				<section id="menu">
+
+					<!-- Search -->
+						<section>
+							<form class="search" method="get" action="#">
+								<input type="text" name="query" placeholder="Search" />
+							</form>
+						</section>
+
+					<!-- Links -->
+						<section>
+							<ul class="links">
+								<li>
+									<a href="meta.html">
+										<h3>Meta-Tutorial</h3>
+										<p>Conclusions from Meta-Tutorial organized as part of ASPLOS'23, Vancouver, Canada</p>
+									</a>
+								</li>
+								<li>
+									<a href="advice.html">
+										<h3>UC Advice Talks</h3>
+										<p>UC Advice Talks from Open Source Hardware LatchUp conference and beyond</p>
+									</a>
+								</li>
+								<li>
+									<a href="index.html">
+										<h3>UC Interviews</h3>
+										<p>Interviews with UC people about Open Source Hardware and its impact</p>
+									</a>
+								</li>
+							</ul>
+						</section>
+
+				</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">FPGAs, Security, and Hammerblade</a></h2>
+										<p>An Interview with UC Santa Cruz Professor Dustin Richmond</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2023-05-19">May 19, 2023</time>
+										<a href="parker.html" class="author"><span class="name">Parker Murray</span><img src="images/parker.jpg" alt="" /></a>
+									</div>
+								</header>
+								<span class="image featured"><img src="images/fpgasec.jpeg" alt="" /></span>
+								<p>
+									Q: Thanks for agreeing to meet. We're excited
+to hear from you. <br></br>
+
+A: Thanks for inviting me. <br></br>
+
+Q: Yeah. Let's go ahead and get started. And
+just with like a general introduction, who you are and speaking shortly about your lab
+and your work and like what the main thrust of your research is centered around.<br></br>
+
+A: So introduction, I my name is Dustin
+Richmond. I'm an assistant professor at UC Santa Cruz. I joined UC Santa Cruz in August
+2022. Before that I was a postdoc at the University of Washington and then did my PhD at UC San
+Diego. I've been involved with open source hardware since I was a wee PhD student back
+in 2012. My first project that I was involved with was called Rifa, a reconfigurable integration
+interface for FPGA accelerators. That was one of the first solutions, if not the first
+to integrate to basically provide an end to end solution for FPGA accelerators that was
+open source. So the Rifa solution supported PCI communication through a streaming interface
+from Windows, Linux, MATLAB, Java, C, Python, onto the FPGA. And I've pretty much gone on
+from there. How do we create usable, reusable hardware solutions for everybody, not just
+for engineers or researchers, but also people who are, you know, do it yourself enthusiasts
+at home. I've been involved on a variety of different projects since then, but they've
+all been about the same. How do we make it easier for other people to, to do what I like
+doing on a daily basis. For current research, I'm involved in a couple of different things.
+One is it's the open source tools are getting easier and easier to use. So how do we teach
+with those open source tools? What are the benefits of teaching with them, which is something
+I talked about, was going to talk about latch up. I'm still submitting a video to John on.
+In the past I've worked on languages and solutions to represent hardware. My interests though
+are pretty broad in the last few, last couple of papers I've published. One was on building
+an open source, high performance architecture, basically an open source GPU called Hammer
+Blade. That code can all be found online through GitHub, BaseJump, STL, Blade Runner, all part
+of Bespoke Silicon Group up at the University of Washington. The other work that I've been
+working on recently isn't so, isn't so open source focus. It's more focused on hardware
+security, but the tools that we use are all, the results that we develop are all open source
+because the best, the best security work provides open source solutions as well to demonstrate
+reproducibility as well as demonstrate reproducibility of the experiment, the data itself. Sure,
+sure. The data, the stuff that I've been working on is all open source, but it varies a lot
+from languages and architectures all the way down to hardware security and even to this
+point, physics, which is odd. It's very broad.<br></br>
+
+Q: Yeah. So it sounds like you're referencing, and I wanted to ask you about some of your
+recent work with multi-tenant FPGA security. With security challenges for sharing FPGAs in the cloud. Can you talk a little bit about that work? I think it sounds super cool.<br></br>
+
+A: Sure. So there's actually two different projects in that. One is a work we published at FPGA
+this year and was nominated for a best paper award. Turn on, tune up, listen in, side channels
+in FPGA hardware. And the work there was looking at, there's been a lot of work recently in
+examining multi-tenant scenarios in FPGAs and how information could leak from one tenant
+to another. And a lot of the work has said, oh, yeah, you just put a power sensor on the
+FPGA and you're good to go.
+There's really no need to optimize beyond that.
+I think our paper was one of the first to look at it and say, no, no, no.
+There's actually a real mathematical underpinning to a lot of this.
+And you need to find the space where the side channel is maximized, the information channel
+is maximized. So we studied that on two different boards, one in a local lab and then the
+other on the FPGA in the cloud and demonstrated that, indeed, these security threats are real,
+but also that there's a lot more than just popping a sensor on an FPGA and calling it a day.
+There's an optimization problem there.
+More recently, we actually used the same sensor to do something completely different.
+So that work focused on two tenants who are co-located on an FPGA.
+And to our knowledge, there's no commercial system that does that at the moment.
+You can't rent half of an FPGA and be co-located with somebody else.
+The security implications of that are pretty broad.
+It's hard to say that that's a good idea unless you don't care about security.
+So one thing that does happen is that it's possible to share an FPGA temporally.
+So somebody else uses an FPGA and then you get to use the FPGA.
+And one of the questions that's not been answered completely is,
+is it possible to leave data behind?
+And what we've been looking at is how using an FPGA, you actually cause
+transistors in the FPGA to degrade.
+And in particular, we looked at the routing.
+So through this degradation, you actually leave evidence of the data behind.
+And that evidence of that data could be AES keys or it could be machine learning weights
+or it could be some OTP key stored in a root of trust.
+And we use the same sensor, actually, that we developed in the PowerSide channel attacks
+to measure the degradation in these routes.
+So the degradation and then oddly the recovery, which is actually a more serious concern,
+that allows you to recover what information was left behind by a previous tenant
+completely unintentionally, just through transistor degradation.<br></br>
+
+Q: So is that if you understand the type of design that they were using on the FPGA prior,
+that if you have that information, you're able to kind of reconstruct
+the data that they had left behind?<br></br>
+
+A: Yes, exactly.
+So if you know the routes, at the moment,
+at the moment, it's a lot more people.
+If you know the routes that were carrying sensitive information, which is,
+there's a variety of ways that you can construct that scenario to be realistic.
+You can recover the information that they left behind.<br></br>
+
+Q: Very cool.
+You also mentioned the work on HammerBlade.
+Can you talk about that briefly?<br></br>
+
+A: Sure.
+So the HammerBlade project is a DARPA, I named our DARPA grant,
+funded through the University of Washington, collaboration with Cornell,
+that I worked on as my postdoc.
+Its goal was to build a,
+its goal is, still exists, the project still exists,
+to build an architecture that,
+if you really want to be tongue-in-cheek about it,
+to build an architecture to end all architectures.
+But in a less ambitious sense,
+build an architecture that we can use to process changing data.
+And that could be changing in time,
+that could be changing in structure,
+or it could be, you know,
+there's different parts of the algorithm that require different properties.
+And so we built HammerBlade itself.
+The project is several parts,
+but the project that I worked on was the HammerBlade MiniCore,
+which is a MiniCore architecture that's designed to be performant
+as the number of core scales.
+And that's really been a challenge in computer architectures.
+Yes, you can build a core architecture,
+but you can't build a MiniCore architecture.
+Yes, you can build a chip with thousands of cores on it,
+but how do you actually get performance out of those thousands of cores?
+So we built this chip, this architecture,
+it's RISC-V processor,
+built around the idea of having cells, local communication clusters,
+and then scale out, not just the cores,
+but the communication clusters themselves,
+so that you get better performance as the number of core scales.<br></br>
+
+Q: You've also done some recent work on Network on Chips,
+both your Ruche network stuff and the NoC Symbiosis.
+Can you talk a little bit about that too?<br></br>
+
+A: Yes, so both those were sort of sub-projects
+or findings within the broader HammerBlade project.
+So if you want to have cores that need to communicate,
+you need a network,
+you can do it with a bus,
+but that's not going to scale to thousands of cores.
+So you need a way to provide communication between all those cores.
+And the simple traditional way of scaling out cores
+is using a mesh network on chip.
+So you have local nearest neighbor connections
+between your adjacent neighbors.
+And there's sort of two ways,
+two challenges that you can look at in that.
+One is that nearest neighbor connections
+don't provide you very good properties of communication
+when you want to go a long distance.
+So it's very hard to communicate with anybody
+outside your nearest neighbor.
+And that has major implications
+for how you program an architecture as it scales.
+So the Ruche network work was looking at
+how do we create a network that provides better
+long distance communication and bisection bandwidth
+while still providing the benefits of a mesh network,
+which are it's really easy to design a mesh network
+and then stamp out thousands of cores.
+So in the Ruche network,
+we developed a way to basically create whatever
+in times where n is your Ruche factor bisection bandwidth
+as you, with no cost and area overhead,
+which is a pretty massive benefit.
+No area overhead, no design complexity,
+just replication of tiles.
+NoC Symbiosis is a similar thing.
+How do we provide communication at relatively low cost?
+So I think as chip designers, we like to make hierarchies.
+We like to think of taxonomies.
+And this is good when we're showing block diagrams,
+but it's actually can be detrimental sometimes
+when you are designing a chip.
+So if you want to box your chip up
+in nice little boxes and planet, that's all well and good.
+But that ignores the fact
+that there is often symbiosis between different parts.
+I say symbiosis because I'm alluding to something
+I'm gonna talk about in a second.
+So for example, the floating point unit
+and a processor doesn't have a need
+to do a lot of long distance communication.
+So it's not gonna be talking to the next core over,
+but the network on chip will.
+Whereas the network on chip,
+the router doesn't do a lot of local communication.
+So it doesn't have a lot of transistors.
+And those transistors generally aren't connected.
+They are, but they're not as connected
+to as like a floating point unit.
+And if you think of the chip, not just as a floor plan,
+but as actual three-dimensional space,
+these are actually using different parts
+of the three-dimensional space.
+The router is using, the network is using a lot of wiring.
+That's very high up.
+And the floating point unit is using a lot of logic
+and wiring that's very low down.
+And if you box those into separate things,
+you're making very poor utilization of the thing
+that the other thing uses very well.
+So if you combine the two,
+you can actually get great utilization of the entire,
+not just floor planning area,
+but the three-dimensional area.
+By combining the two,
+it actually reduced the area of your overall processor
+if you were doing that previously.<br></br>
+
+Q: So moving on from research,
+we have just like a couple general questions
+that we've been asking around to people.
+First would be, you know,
+it's getting harder to count on dice drinks
+for computational advantage, as you know.
+So we're gonna need more clever architecture tricks,
+so to speak, in the future
+to continue to advance the field.
+What do you think, or what do you see
+as one of the next great frontiers
+in computer architecture?<br></br>
+
+A: Chiplet integration.<br></br>
+
+Q: Like on-chip fabrics and multi-chip modules
+and things like that?<br></br>
+
+A: Yes.
+Um, I think that chiplets are a ripe opportunity
+for just about everything in the hardware stack.
+It hasn't really been touched
+by the open-source community extensively yet.
+One of the interesting things is that chiplets
+and sort of interposers don't require
+a lot of advanced technology nodes.
+So for example, you could tape out an interposer in Sky 130.
+Somebody may hold me to that and say that's wrong.
+It's not something that requires a ton of,
+you know, taping on an interposer
+doesn't require a ton of design.
+In principle.
+But at the same time, it gives us this opportunity
+that we've never really had before.
+So you talked about how there's less opportunity
+for die shrinks, but there's also opportunity
+for integrating modules
+that we really couldn't do in the past.
+With this focus on making transistors smaller and smaller,
+we always made big monolithic chips
+and we stuck to, you know, a 14 nanometer process
+for the entire chip.
+But with chiplets, we can start integrating,
+you know, older nodes or nodes that are better
+for analog electronics or integrating things
+like phase change memory into our chips
+that we really couldn't do before
+because the process just didn't support it.
+So there's a lot, not just the opportunity
+to think about how we build architectures,
+but how we build systems that integrate different pieces
+that have different advantages,
+that are more efficient in one area
+or save us energy or provide us performance in another.
+And that's really because we can integrate
+just chips together, finally, in a smaller package.<br></br>
+
+Q: Great, love it.
+Okay, and then the open source hardware community
+is still obviously very young.
+You could view it as perhaps
+like the open source software community
+in the late 90s to the early 2000s.
+Where do you see like the open source hardware community
+and like RISC-V going into the future?
+Do you think it'll largely remain like an academics area
+or for startups that they have this advantage
+of like this low barrier to entry?
+Or do you think, do you foresee it
+expanding out into the industry?<br></br>
+
+A: I think it already is expanding into industry.
+I think companies like Google
+have really done a great job
+in supporting the open source hardware community.
+They have driven a lot,
+they and others have driven a lot of the development
+of the open source hardware tools
+in the last say five years,
+which really didn't exist five years ago.
+It barely existed,
+but it's really become a fully featured tool
+in the last four or five years.
+I just recently taught a class
+with using the open source tools,
+which I couldn't have imagined
+even two or three years ago.
+I don't think that's going to stay that way.
+I think people are going to realize
+that the open source tools are good.
+And if you contribute back to them,
+they can only get better.
+So I really hope that
+it doesn't stay isolated to academia.
+So even the changes that I've seen
+in the last two or three years
+have been so impactful for how we design chips
+or how we teach students
+that I really can't imagine it staying in academia.
+Gotcha.
+You can do formal verification
+with an open source tool flow.
+That's pretty cool.
+That would not have been possible five years ago.
+And you normally pay hundreds of thousands of dollars
+for that from a CAD tool vendor.
+I really hope that even at least as a first pass,
+as a first pass,
+regression checking or something,
+we start to see a lot more adoption
+of the open source design tools.<br></br>
+
+Q: Very cool.
+And then we'll close out.
+We have one kind of like a little fun question.
+Do you have a favorite open source license?<br></br>
+
+A: I mean, is there any answer but BSD3?<br></br>
+
+Q: That does seem to be a common answer.<br></br>
+
+A: I like BSD3 a lot,
+but I also respect there's quite a bit on there.
+BSD3 doesn't focus so much on software.
+Or so it doesn't focus so much on hardware.
+And I think that there are
+some good open source licenses.
+There's been one modified Apache license for hardware.
+I think maybe that is solder pad,
+but there's also a solder pad license,
+which focuses on more on like,
+it's not a binary, it's a bit stream or it's a...
+Just a little more task specific.
+And I think that those, you know, BSD3 is great.
+It's great for just code,
+but it's also not the end all.
+It's not gonna be the perfect license ever.<br></br>
+
+Q: Thanks so much for hopping on a call.
+We really appreciate you taking some time to talk to us.
+
+
+									</p>
+								<!-- <p>Nunc quis dui scelerisque, scelerisque urna ut, dapibus orci. Sed vitae condimentum lectus, ut imperdiet quam. Maecenas in justo ut nulla aliquam sodales vel at ligula. Sed blandit diam odio, sed fringilla lectus molestie sit amet. Praesent eu tortor viverra lorem mattis pulvinar feugiat in turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ullamcorper tellus sit amet mattis dignissim. Phasellus ut metus ligula. Curabitur nec leo turpis. Ut gravida purus quis erat pretium, sed pellentesque massa elementum. Fusce vestibulum porta augue, at mattis justo. Integer sed sapien fringilla, dapibus risus id, faucibus ante. Pellentesque mattis nunc sit amet tortor pellentesque, non placerat neque viverra. </p> -->
+								<footer>
+									<ul class="stats">
+										<li><a href="index.html">Main</a></li>
+										<!-- <li><a href="#" class="icon solid fa-heart">28</a></li>
+										<li><a href="#" class="icon solid fa-comment">128</a></li> -->
+									</ul>
+								</footer>
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon solid fa-rss"><span class="label">RSS</span></a></li>
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

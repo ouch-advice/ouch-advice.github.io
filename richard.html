@@ -1,0 +1,656 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Open UC Hardware</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="single is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">OUCH</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="advice.html">UC Advice Talks</a></li>
+								<li><a href="interviews.html">UC Interviews</a></li>
+								<li><a href="meta.html">Meta-Tutorial</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+				<section id="menu">
+
+					<!-- Search -->
+						<section>
+							<form class="search" method="get" action="#">
+								<input type="text" name="query" placeholder="Search" />
+							</form>
+						</section>
+
+					<!-- Links -->
+						<section>
+							<ul class="links">
+								<li>
+									<a href="meta.html">
+										<h3>Meta-Tutorial</h3>
+										<p>Conclusions from Meta-Tutorial organized as part of ASPLOS'23, Vancouver, Canada</p>
+									</a>
+								</li>
+								<li>
+									<a href="advice.html">
+										<h3>UC Advice Talks</h3>
+										<p>UC Advice Talks from Open Source Hardware LatchUp conference and beyond</p>
+									</a>
+								</li>
+								<li>
+									<a href="index.html">
+										<h3>UC Interviews</h3>
+										<p>Interviews with UC people about Open Source Hardware and its impact</p>
+									</a>
+								</li>
+							</ul>
+						</section>
+
+				</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">PCB Design, User Interaction, and Open Source Hardware</a></h2>
+										<p>An Interview with UC Los Angeles Professor Richard Lin</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2023-05-19">May 19, 2023</time>
+										<a href="naz.html" class="author"><span class="name">Nazerke Turtayeva</span><img src="images/naz.jpg" alt="" /></a>
+									</div>
+								</header>
+								<span class="image featured"><img src="images/chisel.jpg" alt="" /></span>
+								<p>
+									Q: So, thanks for agreeing to be part of this interview process,
+and the first question we want to start with is, what makes you to wake up in the morning
+or to stay up till the end of the night? Just some warm-up questions.<br></br>
+
+A: Honestly, I stay up late a lot more than I wake up in the morning.
+Aside from jet lag, we got jet lag a bit from that conference.
+It was in New York, and I had a prior conference in Germany. It was fun.
+Yeah, so you can imagine there was a bit of jet lag coming from the other side,
+and you wake up earlier than I usually do.
+But I think, like, I like building things, right? Like, a lot of the reason I do the work
+I do is because I want to build stuff. And, you know, maybe this is like,
+what they call in software engineering, yak shaving. But it's like, instead of building
+the thing, you do a lot of things to enable building a thing. So you do a lot of extra work,
+right? So a lot of work I do on design tools, you kind of think is maybe it's a bit of yak shave,
+right? It's very indirectly getting me to building things by doing a lot of infrastructure.
+It definitely helps a lot, especially, I guess, in greater experiments.<br></br>
+
+Q: So, yeah, I was looking a bit about your research, right? So, like, there are a lot of
+articles, like, board designers and stuff. And so, like, I looked at the weaving schematics,
+and it was so cool. Like, I really ended with, I guess, a similar tool back in my,
+like, electronics majoring as a student. But it doesn't matter. Okay. So, like, I guess
+my question would be why it made you to pursue more, like, board design and electronic side of
+the architecture, or in general, I guess, like, computer engineering, because I could
+imagine that Berkeley is, like, so heavy on, like, computer architecture research itself.<br></br>
+
+A: Right. So I actually did work on Chisel before I started the board design stuff.
+Chisel was a hardware description language for chips, so digital logic design.
+And much of the inspiration for board stuff came from that. The idea from that was, like,
+generators, right? So, how much do you know about Verilog and how awful Verilog is?<br></br>
+
+Q: Well, I will say a hot point, and I will say that I like Verilog, but...<br></br>
+
+A: Oh, all right. All right. Try Chisel. See if you still like Verilog afterwards.
+So, one thing Chisel does is this idea of generators. So, in Verilog,
+it's common where you write a module that does one thing, right? If you need a slightly different
+module, you might have to end up copying and pasting it. I hear in practice, in industry,
+they use code generators, you know, which gets the job done, but it's not the cleanest solution,
+right? Because then you end up with a bunch of generated code. You know, you can kind of say
+that maybe at a low level, that's what Chisel is doing, but at the user-facing level, it's a lot
+cleaner than code generation. I think there's, like, a lot of potential, and there's a lot of
+value of this idea of generators, because I guess it's more abstract. It's separating interface from
+implementation, right? So, if a generator, I can say, hey, I want a 10 deep queue, right? And I
+don't have to, like, write all 10 of the queue elements out. It's a faster way to design,
+more efficient. And I guess, to cycle back to the actual question,
+I think the nice thing about boards is that it's a lot more accessible, right? Like,
+if you look at what's within reach of a hobbyist, a hobbyist is not going to afford the latest
+process technology, no chip. The hobbyist cannot afford a chip at all, probably, because those
+things are just so darn expensive. Like, I think a lot of this is somewhat inspired by, like,
+democratizing design, how can everyone design things, right? Build custom devices. And I
+just don't think that's there at the chip space. And also, like, in terms of stuff that's exciting,
+I find tangible things exciting, right? So, that's, like, there's no electronics in this
+plush duck yet. I want there to be electronics in this plush duck, right? But it is a tangible thing,
+right? You know, if its eyes were glowing, if the eyes had lights in it, I don't know, maybe its
+wings could flap. That would be cool, right? You know, some of this is a value judgment. It's just,
+like, here's what I find exciting. Right, you know, I think on the chip side, there's a lot of
+economic potential. Everyone wants AI. And you don't see that on the board side, really.
+Maybe that's because, like, a lot of device design, like, on the board side is outsourced.
+But, like, I don't know. We don't see that same. I guess it's kind of a tradeoff, right? Like,
+the tangible things are exciting. There aren't the wheelbarrows of cash behind
+boards compared to chips. So, yeah, I think a lot of it is just what everyone can do and
+tangibility, vaguely speaking. Yeah, it's definitely very cool. I could imagine that,
+like, I think, at the beginning of my, how to call it, undergraduate, I was trying to choose
+between CS and electrical engineering. So, I choose to do electrical engineering just because
+my friends were doing some wiring in the breadboard, but not as exciting as controlling
+board design, but still. Yeah, definitely. It's very exciting.<br></br>
+
+Q: So, the next question would be, so, like, I worked very super little with electrical design.
+Like, I guess, at most, what I touched was, I guess, Eagle or electric VLSI kind of tools,
+but electric VLSI. Okay, yeah. Yeah. So, I was wondering, like, how the board design
+is different for, like, microcontrollers and stuff versus, I guess, Cambridge architectures,
+or, like, do we use the word board design for it, or is it different? <br></br>
+
+A: Yeah. So,
+the industry calls both EDA tools. They are very different things. So, you kind of, like,
+if you get asked about EDA tools, you have to kind of know about the context, right? Like,
+are they talking, like, Synopsis and Cadence? Yeah. Or are you talking about, like, KiCad and
+Eagle? And they're fundamentally pretty different beasts, having had experience with both. So,
+on the PCB side, your fundamental primitives are electronic components, right? And you have
+tons of those things. There's a huge space of these leaf level components, right? Like,
+individual microcontrollers, individual resistors. And in most cases, these aren't that customizable,
+right? You pick what's on the market, and you buy them. You can't, like, buy a resistor off
+the shelf and then, like, tweak the resistance. Right. So, you are designing with a wide range
+of components that do very different things. Now, compare that with chips. Now, I'm slightly
+less familiar with chips than with boards. But my understanding is that you have a few primitives
+that are very well understood that you can compose in many ways, at least on the digital side,
+right? You have a few logic gates, and then you can compose them to make arbitrarily complex logic,
+right? But it's not, it's a different problem, right? You're not, like, picking out the individual
+logic gates from, like, DigiKey and selecting which one to order. You might have a little bit
+of flexibility, like with your process corners, right? But it's not like, oh, yeah, here's,
+like, 10,000 parts, pick the one you want. And the modeling is also different, right? Like,
+I believe in the chips domain, your fundamental, your primitive components have very good modeling,
+right? So, you can simulate it, you can get very good, you can probably get decent accuracy,
+right? You know, in boards, some components have simulation models, these are mainly your analog
+components, like op amps, resistors, capacitors. But once you get into more digital side,
+you don't have simulation models, at least not easily usable, interchangeable ones. So, like,
+if you were to build a full board, you're probably going to be unable to simulate the whole thing.
+Unless, I don't know, maybe you have a ton of money, it's worth for you to set up custom
+simulation models. But it's not like with chips, where you're just going to spend hours and hours
+writing unit tests for your chips, and testing it before it taped out. And boards, there aren't,
+generally aren't the simulation models that enable that. At least not at, like, the individual
+designer, hobby designer level, right? Like, I would not be surprised if major electronics
+manufacturers were able to do a bit more simulation and testing. I don't know anything
+like that in the lower end level. Part of my brain stuff is I did some testing work with Chisel. So
+did a unit test framework for chips with a focus on usability. And I think, like,
+testing has the potential to improve the development process, right? Because you
+can regression test as you go along. And you just don't get the same thing with boards,
+unfortunately.<br></br>
+
+Q: What is the, like, latest trend
+in the board design community? So, because I think I know kind of very little about it. And
+I wonder what kind of innovative ideas? <br></br>
+
+A: That's a good question. And, you know, I'm going to put
+a disclaimer that like, I don't necessarily know, because I think in board design, you have a fairly
+active hobby community, right, which is where I have, which is probably where I would position
+myself. And then you have a very distinct industry community, right, where you don't have
+as much visibility into. In academia, the labs generally, I assume, are closely collaborating
+with industry. So there's a bit more cross pollination there. But I don't think there's
+as many collaborations on the board side. So yeah, that's the disclaimer. Yeah.
+Let me see, how do I want to phrase this?
+I would say within the different communities, there's also very different tool sets,
+right. So in the industrial community, they're using, should I say higher end tools that
+may not be known for their latest and snazziest user interfaces, they provide a lot of,
+I would assume features that are very useful for enterprise, but maybe come at the cost of
+maybe come at the cost of usability and may not be useful to the hobby community.
+They are definitely priced outside the reach of the hobby community.
+So yeah, you do see a bunch of things. You do see these very high end expensive tools. I don't
+think it's expensive to chip tools. Now, my understanding, and again, this is fairly low
+confidence answer, is that there's a lot of focus on enterprise capabilities,
+so like maybe integrating for purchasing systems, there's this focus on automated layout.
+So that's just like, how can you automate placement and layout?
+There's some interest in what's termed shift left. So like, if you view a development process
+as like left to right, the idea is, can you move things like testing and verification earlier in
+the chain? And this is on the commercial side. So like, can you do, can you have automated
+schematic reviews? I think there's a commercial tool that's looking into doing this. You know,
+how does it work? I don't know. Be curious, actually. I assume there's libraries of some kind.
+Now, on the hobby side, the main tool, the main open source tool in use these days is KiCad.
+KiCad, KiCad, I'm not sure. I don't remember how you're actually supposed to pronounce it.
+But it is basically the only, the major open source PCB design tool in town.
+It's surprisingly good. It's really good. It's still traditional schematic capture. So like,
+they're not doing anything fundamentally cutting edge. Right. But the user interface is reasonably
+polished, the tool works well. They have some advanced layout features like push and shove.
+Like if I was to drag a wire, it'll push other wires that are interfering out of the way. This
+is generally considered a fairly high end feature. And it's great that it's in an open source tool.
+My understanding is that KiCad is actively developed. I think they have funding from
+CERN or something, which is great. Yeah, that it's nice that there is a community that is,
+there are people interested in supporting open source development and benefiting from it. So
+it's great that there is a bit of an ecosystem around that. And like,
+kind of like open science, right? Like, taxpayers are paying for it. It's nice if it's
+open source and the taxpayers benefit from it. You know, I don't know what they're doing from a,
+I don't think they're doing much from a research standpoint, right? It's
+traditional schematic capture and board layout. Whereas compared to my work, which is more like,
+whereas compared to my work, which is more like, this is a slightly different paradigm,
+right? It's not traditional schematic captures, not graphical schematics.
+So this is more on the, well, it's a more powerful approach to design, but it's
+unfamiliar, I guess, or less familiar. That kind of makes sense. That went a bit off on a tangent.
+It totally makes sense. I think the beauty with the hobbyist community is that like people just
+do it on their own and try to use for their like usual life. I don't know how to fix certain stuff.<br></br>
+
+Q: So yeah, I think, yeah, like I actually send your like website to my friends because I have
+also friends who are like very into this, like, I guess, electronic tools, board design. And he
+also did some like, that's a super car design. Like, yeah, like when you have to kind of get
+a lot of electronics as well. It's a race car, a race car.<br></br>
+
+A: Interesting, like a scale race car, like a line following robot car? Or is this like a,
+are we talking like a full size car that goes on the road?<br></br>
+
+Q: I guess, yeah, more of the roads. It looks like some Shell Eco-marathon stuff.<br></br>
+
+A: Oh, interesting. Okay. Because when I was in grad school and undergrad at Berkeley,
+I was part of the solar car team. And actually some of the boards that, some of the earlier
+boards I built using this research tool, we raced across Australia. So that was fun.<br></br>
+
+Q: That's so cool.
+And also a bit stressful.<br></br>
+
+A: I mean, yeah.
+Across Australia. Australia is interesting.<br></br>
+
+Q: I don't doubt. So yeah, like, was your research also like you did some interesting stuff, right?
+Like was the HCI PL plus, plus like board design. Do you want to tell more about that?<br></br>
+
+A: Right. So very interdisciplinary. Lots of, I mean, the way I would look at it is that it's a
+big toolbox, right? Like I have lots of tools to draw from.
+It's like board design, you can say more general electrical engineering is kind of the application
+area. Programming languages PL is the approach I use, right? It's like, how do I design these
+tools? I use PL to allow the user greater automation capability because they can start
+building custom automation, right? And then HCI is kind of the overall methodology,
+right? Because it's very user focused. We have a focus on understanding user needs
+and also evaluating it with actual users, right? Because
+this tool builders, it's very easy to say, I want to build this thing and it is great for me.
+And then if you put in front of users, everyone's like, what the heck is this? I can't understand
+this, right? So by doing regular user studies and keeping users in the loop,
+that helps make sure that you're building something that's generally useful.
+I think of the chips domain, I would also like to see more of that.
+It's like going back to the earlier work on Chisel. We didn't formally do any HCI stuff,
+although I think in retrospect, it would have been great. But informally, because we support
+our internal lab who use it, right? We were concerned about usability a lot. Probably more
+so than just a project, I'd be like, all right, let's get a paper out of it. And then don't ever
+look at the code again, because it's going to be ugly. So this was a project that was
+structured somewhat differently. And even if it wasn't formally HCI, even if we never got like a
+CHI or WISP publication, or even went in a direction that could have,
+we very much did think about usability.
+Yeah, I think it's like super, I guess, underlooked part of the tools.<br></br>
+
+Q: Yeah, I could see that.<br></br>
+
+A: People joke about the user interfaces and old EDA tools. It's not great.<br></br>
+
+Q: Yeah, it's just hard to find all those buttons here and around.<br></br>
+
+A: Yeah, so like about the PL part, right? So like, from what I know for the board design tools,
+or what I could imagine is that it will be about like routine and placement stuff, right? And you
+usually don't necessarily code as much. So like, where particularly we do use this PL, is it for
+like writing the application where we are running this like EDA tool? Or is it kind of another
+extension for the user?
+Um, so in the grand scheme of things, right, there are many places where I think PL could
+be applied. Yeah, obviously, as a PL researcher, I like, all you have is a hammer, everything looks
+like a nail, PL is the hammer I have. Right, but my work focuses more on automating the schematic
+design parts. So I think that the schematic part is the low hanging fruits in a sense,
+right? Because it is a part that is relatively simple to automate, right? Because like,
+you have equations, a lot of the schematic level design you sometimes do is just
+here, your stock equations apply to the circuit. You know, if you're lucky, you find a online
+calculator, you plug numbers in there, and you take the numbers out of there, and you plug them
+into your schematic, right? Our kind of the idea here as well, if your schematic tool was a
+programming language, we can just bake all that into programming language, you can keep it in one
+consistent interface. As a bonus, now your design is self consistent, because you have a chain of
+computation from your specification all the way to your implementation. Now on the layout side,
+you can also do computational layouts, computational design and fabrication.
+There's actually another group that is doing that. This would be Leo McElroy and friends work
+on SVG PCB. So what they are doing is, here is a JavaScript library framework, nebulous term,
+um, to allow you to generate a layout. And then you can write arbitrary computation in there to
+like, generate repeat patterns, for example. So you know, that's a separate thread of work.
+We're looking into integrations with them. It's also really cool work. They also did a
+bi directional editor, where you have this dual graphical and code view, and you can edit the
+graphics and the code updates in some, some supported cases. <br></br>
+
+Q: So is this about your research,
+so bi directional layout, or is it also like another? <br></br>
+
+A: That's the other people's research.
+I'm not, I'm not doing layout stuff other than integrate other than integrating work. So we're
+going to look at like, can we go from this HDL schematic tool to this computational layout tool.
+But like, I'm not doing anything on the layout side.
+Mostly because I think there's just a lot of work that can be done on the schematic side.
+I think it's also a place where in concept, it could have a lot of impact, right? Because of
+the separation of implementation interface, right? So for a novice designer, it's one thing to say,
+hey, go design a resistant divider from scratch, right? That's a harder task compared to say,
+here's a resistant divider block, it's parameter about rise by your target output voltage.
+So you have these more intuitive knobs, and the libraries internally figure out how to turn that
+into an implementation. I think there's, there's work that needs to be done to make the whole
+system more usable for novices, right? That's a hard problem in general. I think in terms like
+fundamental design abstractions, there's a lot of potential there.<br></br>
+
+Q: Yeah, this is so cool. I think because I guess sometimes we take all those tools as granted,
+right? But like, what, how much you can do all this, like layout automation,
+and like HCI is also so important. So yeah, it's very cool.<br></br>
+
+A: Yeah, take them for granted. I know people who like to complain about the tools they have and
+how awful they are. Horror stories about EDA tools with awful interfaces.<br></br>
+
+Q: Yeah, I just try to be grateful for people who developed it. So that's why I try not to complain.<br></br>
+
+A: That is true. Sometimes just like, what the heck is this, right? Sometimes like,
+I understand why they did this, right? But sometimes like, wow, this is just an awful
+user interface.<br></br>
+
+Q: So I guess it's a bit of naive question,
+but like, what is the difference between here, schematics and layout? So because it's kind of
+cause it sounds a little bit confusing and similar. <br></br>
+
+A: So in the schematic, you're defining the circuits in the abstract, right? So you can think
+about this as writing HDL, writing Verilog, right? You're saying, here's what this thing does. Here
+are the major components, but you're not saying like where this goes on the physical board or the
+chip, right? So even a chip design, you have a separate layout state, right? You have synthesis
+that maps it to like, here's how logic maps to transistors or I assume gates. And then you have
+a separate step, which is layout, which in the chip world is highly automated to some degree,
+right? I hear there's a lot of work to getting something DRC clean. I hear that's a bit of a
+mess. And like, it has to be automated chip design because you're talking about millions,
+billions of transistors and board design always on the hobby level board. You're only talking about
+like maybe hundreds of components, right? So you can do the placement by hand. There are tools for
+auto routing, I think less so auto placement, where the computer can algorithmically try to
+generate the wiring and the component placement. I think a lot of the hobby community generally
+doesn't trust auto routing and auto placement tools. There tends to be a trend towards
+placing it by hand. Part of it is that the tools aren't really there, like there aren't and
+the open source auto routers are limited. And the major one is free routing. And a long time ago,
+there were there were questions about licensing, because apparently, someone committed some
+commercial code into it. And then I don't know if the lawsuits actually started flying, but
+there were concerns about it. So that project was a bit
+unclean from a code base and licensing perspective. I know there's a, I think there's a lot of auto
+routing work on the commercial side. And I don't know what the general commercial view towards auto
+routing is. But I know, on the non commercial level, there tends to be a dispreference towards
+auto routing. And like, you know, maybe that's just because as hobbyists, right? Like, they like
+to take pride in the words they make, right? It's like, I want to make this board aesthetically nice.
+And that's some, an auto routed board is generally not going to be very aesthetically nice.
+Yeah, it definitely makes sense. So like, does this mean that like, when you're doing like hobbies,
+also boards, like you will write some HDL code of the genetic schematics, for example,
+for microcontrollers? Or like, is it you write HDL for connections in between? Because I guess I
+could imagine that everything is ready, and you'll try to kind of connect them to each other, right?
+Right. So are you familiar with the difference between behavioral and structural Verilog?<br></br>
+
+Q: Uh, yeah, I think I mainly the behavioral.<br></br>
+
+A: Yeah. So you can think of the board HDL that I work on as structural Verilog plus generators.
+So there's no behavioral synthesis at all, because there's no models, right? Like,
+what does it mean to write a function and implement it on the board? Right?
+You know, if I was to make an analogy to chip EDA, that'd be like, high level synthesis, right?
+And that is, you know, that's somewhat of an unsolved problem that shifts, right? And that's
+something that we don't even know what that looks like in boards. There's some research
+into synthesis or design. That's mainly very much on the research side. So it's like, you know,
+what does scale up? What are the what would the libraries look like? What are the runtime issues
+in there? How do users write the spec? Right? And those are all open questions. And to some degree,
+I'm sidestepping those questions by saying, like, this is the equivalent of structural Verilog,
+you define a system architecture, and we help you turn that system architecture into a board.
+I think in the future, there could be a lot of potential for like, how do you go from
+abstract user requirements to the system architecture? And then the system architecture
+can go to board using some of the tools we've developed. I think that'd be a cool place to
+explore. But that is a different type of problem. I don't know. It's like, hey, ChatGPT, build me a
+flush duck with a FPGA. And that's, it'd be great.
+Well, hopefully,
+I want some electronics inside this duck.<br></br>
+
+Q: Hopefully, yeah, I think I do remember. So like cartoon, how it's called heroes. And I think,
+uh, I think it's essentially also electronics built inside the plush, isn't it? It's kind of
+big, giant. Interesting. Yeah. It was kind of futuristic animation, I guess.
+So yeah, I guess shifting towards more the open source part, as one of the final questions.
+Like, what can I, I'm sure that there's some open source license in the board design environment as
+well, right? So like, do you have any favorites? Or prefer?<br></br>
+
+A: It's an ambiguous question, to some degree, right? So I'll answer both of them. So you know,
+on the design tool side, this is just standard software, right? So you have your standard
+software licenses. You know, this project started at Berkeley. So obviously, we use the BSD license.
+Yeah, it's a generally accepted permissive license. And, you know, it's got Berkeley in the
+name, right? So why not? You know, to some degree, the chisel project did eventually transition to
+Apache two, because that has, I think that has certain patent protections, which made it more
+favorable to, or less risky to get adopted by industry. You know, so maybe, yeah, that's a
+different thing. I'm not worried about that right now. That's a bridge, we can cross when we get
+there. Because chisel did have a transition period, and there was a lot of legwork to move it from
+its initial BSD release to Apache two. Now, on the hardware side, the license situation is a bit
+more complex. So I think at one point, people did just release hardware design under software
+licenses. But you know, it's not perfect, right? Because what, what do things mean? Especially if
+it's beyond, like a general permissive license? Right? So I think, you know, maybe people try
+Creative Commons at one point. But recently, there are specific licenses for open hardware.
+So that like, separates out the design artifacts from the physical things. I looked at them,
+I'm not super familiar with them. And it hasn't been a huge
+concern for me, because I mostly do software design tools, right? So
+the software licenses mostly work for us. But if you're doing something much more on the hardware
+side, you can consider looking into one of these specific open hardware licenses that
+make distinctions that may be necessary, depending on your use case.<br></br>
+
+Q: Got it. Yeah, I was asking about this question, because sometimes I observe people having some
+fun discussions about like, fighting about what a license is better, or what is their favorite. <br></br>
+
+A: I mean, yeah, in the context of hardware licenses, the answer is, I'm not sure in the
+context of software licenses. I would imagine the main question is between like,
+what's generally a strong copyleft or weak copyleft? Right? So like a weak copyleft would
+be a permissive license, like ESD, right? It's basically like, here's the code, have fun with
+it, you can do whatever you want with it. Right? Whereas a strong copyleft license is like GPL,
+which is like, here's this code, if you make a change and redistribute it, you also need to
+license your changes under the same license. So it is any changes need to be open.
+You know, we were at Berkeley, so kind of that choice was made for us. ESD, it's Berkeley. But
+a permissive license in concept, makes it easier for more people to participate. Right?
+Because they can make changes, they can redistribute it, you know, under different
+license, commercialize if they really want. But for an infrastructure level tool,
+there are also disincentives that limits some of the cases that GPL was meant to protect against.
+Right? Like, you know, if you take our tool, for example, and you make your proprietary
+modifications, and you try to sell it, you know, great, the license allows you to do that.
+But you don't get the goodwill of the community, right? It is potentially seen as hostile. And,
+you know, as we make changes, as the core developers make changes, we're absolutely not
+going to support you if you're, if you just took our code and try to sell it. Right? So,
+you know, that's a disincentive. It's a soft disincentive that limits the kind of
+behaviors that GPL was meant to protect against. Right? You know, you can still do it. And, you
+know, we know that you can do it. And, you know, honestly, maybe there are reasons,
+like legitimate reasons, you might want to do that, right? And that's fine.
+And also part of what we've copy left permissive licenses give you is confidence, right? It's like,
+hey, you, you, you effectively own this, right? Like, here's a confidence for you to try this
+thing and adopt it. We can't pull the rug out from under you. If you need to make your changes,
+no, absolutely go for it. We would appreciate it if you would upstream your changes and coordinate
+with us. But, you know, if you have your reason not to, you know, go for it, you do have to
+understand that there is a balance. Like, if you don't upstream your changes,
+the rest of the community is not going to help you, right? But if you do a cost benefit analysis
+and you figure out that's useful, then you have the right to do that. And the hope is that this
+will ultimately help adoption. That was long. I hope that kind of made sense.<br></br>
+
+Q: It definitely makes sense. Thanks for that. So, like, what is then, like, your, I guess, future vision about this, like,
+a community, both design community and the open sourcing with it?<br></br>
+
+A: So, you know, the disclaimer is that it's a vision. It might not work out, right? What I
+would like to see is in the software community, we have library-based design and it's allowed
+a lot of people, even very novice people, to become very productive. Like, it's easy to get
+started with Python and make an app that just does something. Even now, I think, I haven't played
+with ML tools, but I think, like, there's tons of tutorials on how you can get started with,
+like, cutting-edge ML, right? And it's super cool that anyone can just do this.
+I think in the hardware domain, you know, open hardware is great. PCB-level open hardware is
+great in that we share schematics, right? You can see what other people are doing,
+but it's hard to drop them in and integrate them, right? You have to understand what's doing before
+you can copy into your schematic editor on your own board. And you also still have to do copying,
+right? That's annoying. It's just like, all right, I see this picture. I'm taking this,
+going in my head, out my mouse, and I'm putting it into my board design tool. I was like, come on,
+we have libraries. We should be able to do this. We can automate this, right? And the hope is that
+with this kind of generator HDL, it will enable that kind of direct reuse and library-based
+design. Now, that being said, I completely understand there are many, many potential
+issues here, right? And these are things that definitely will need to be addressed, right?
+You know, software is infamous for, what's it called? DLL hell. Dependency hell.
+And that's something that, you know, hardware is risk-averse, right?
+Hardware doesn't want to deal with dependency hell. Hardware wants confidence that your board
+is going to be right the first time. Less so of force and chips. <br></br>
+
+Q: Oh my god,
+the verification and chips. I hear it's absolutely ridiculous.<br></br>
+
+A: Yeah. And then also, like, you know, is a HDL the most usable interface, right? Because
+it's very powerful, right? But it's also could be intimidating to novices, right? So, you know,
+there's a bit of a barrier to entry there. You know, our hybrid graphical tools helps a bit,
+right? Because there's a bit of familiarity there, but are there other interfaces where
+it's much more novice-friendly, but you can get all the power of a general library behind it,
+right? There are many open questions that need to be resolved for this division to
+really work out. You know, in general, we'd love to have collaborators on this.
+Yes, it would definitely be super useful, I think. I think we have a lot of room
+on how we can improve. <br></br>
+
+Q: So, like, when we share the, I guess, open source hardware, right?
+It's everything based on the HDLs, GitHub, things that are, I guess, relatively smooth.
+But when it's a board design, it's also about layouts and some kind of file versions, right?
+That you cannot just, like, share in a text version as you do with code. So, how hard is it?
+And how is it being solved these years? <br></br>
+
+A: Right. So, with my work on the schematic side,
+the idea is that you can't just share the libraries, right? You share libraries, you
+import them, and, you know, I'm completely glossing over dependency hell. I understand
+that's a real problem, and it needs to be worked on, right? But right now, you know,
+we have a process where it is just direct library reuse, right? Like, the example boards we built
+share a lot of underlying HDL with the other example boards we built, right? That is directly
+reusing things as opposed to, like, going into a schematic and copy pasting. Now, each layout is
+going to be individual and unique. We can do a bit of reuse. Like, we can say, hey, you know,
+because our design is hierarchical, right? We have things like here's a microcontroller,
+and inside that microcontroller is blocked. There's a chip, capacitors, whatnot, right?
+Each level of hierarchy, there's tools where we can, what is it,
+import the layout from a previous level. We can, like, save a layout snippet of that hierarchy
+block, right? And then import into a new design, right? It's a community plugin. It doesn't,
+they make some different assumptions, so it doesn't really work well for our tools anymore,
+right? Because their intent was to support hierarchical schematic design,
+whereas we don't have all the same information that a graphical schematic has, right? But,
+like, in concept, right, like, you know, this is not a conceptual problem. This is
+a implementation problem with some of the open source plugins we've been using, right? And, like,
+this is solvable. But in concept, right, you can reuse layouts. There are many questions. There's,
+like, you know, is the layout for a one-sided placement or a two-sided placement board? How
+many routing layers do you have? So, the design space is a lot more open than what you might have
+with a schematic library, right? And, you know, in concept, I can certainly see for each schematic
+library, you can have many layout snippets. Maybe they're even parameterized, so you can say, hey,
+you know, here's the minimum spacing I want. Take this stock layout and specialize it to my design
+rules. I see. So, the problem is that you can get the plugin from, I guess, different sources. You
+can merge into your design, but you cannot share the merged design back to the community. It's
+going to be cluttered, right? Oh, no, you can absolutely share it. So, conceptually, you can
+share a layout snippet. You can share the final board layouts, right? All our layouts are open
+source. You can take something from them. The main practical issue is that right now the
+open source TCAP plugin that allows you to, like, save a subschematic, it makes some assumptions
+that don't work well for our tool. It makes some assumptions that you are working on a graphical
+schematic based flow. And there's some metadata that we don't generate that it looks for. So,
+it has some overly aggressive checks which do not work with our tool. It's not a fundamental thing.
+It's not a conceptual issue. It's a choice that it's an implementation with the current tool
+where they have specialized it to graphical schematics. And that turns out that it doesn't
+work with what we generate. Now, we can certainly do something that's like, hey, you know,
+we can do a different sub layout tool where we do have save restore with our with the kind of
+data that we generate. I don't think it's basically, I don't think it's a conceptual problem.
+But, you know, right now the current plugins that do save restore layout don't really work
+with our tools. <br></br>
+
+Q: Got it. I see. Interesting. Well, then, I guess we'll be hoping for the
+better future in the coming couple of years or a bit more. I think I learned a lot from you. I think you mentioned in your letters that you also
+wanted to ask for some stuff. If you have any questions, you can also, I guess, let me know.<br></br>
+
+A: So, like, I know one thing that this whole Altra project is interested in is, like,
+moving this past academia. And, you know, I'm very interested in, like, how I can take my work and,
+you know, build a community around it, right? Because I think with any library-based tool,
+the community is the important part. The tool we build just enables that community, right? You know,
+it's like, what are the things that you all have learned that can translate over to PCBs, right?
+And, you know, I know we did a lot of stuff with Chisel around adoption, right? But that was also
+because we had funding for it. We could run workshops. In fact, I think we were expected
+to run workshops as a condition of the grant funding, right? So, whereas this is a much more
+independent project, right? We don't have a structure set up for workshops.
+It's like, what structures help build community,
+especially where you don't have some pre-existing structure from the grant funding itself.<br></br>
+
+Q: Oh, I see. Interesting. I guess, in our situation, or it is essentially OpenPiton in this, like,
+Jon's project, right? From back in Princeton. And I guess he already talked about that. So,
+I think they also had this, like, funding from DARPA. So, I think it was kind of having
+strongly enforced as well. I guess, in my humble opinion, it can come back again to the, like,
+financial things and raising money where we can for the workshop and stuff. And eventually,
+kind of, try to do the same paths. It's hard to say. I think at FOSSi Foundation, though,
+people are, like, doing, in fact, PCB design, right? So, what I observed from them is that
+they usually kind of have some startups and stuff. So, in that way, they also kind of, like,
+aggressively, let's call it, promote their projects. <br></br>
+
+A: Yes. But, you know, I would be interested,
+like, you know, what is cost-efficient ways to transition out these tools where you don't have
+lots of funding backing. It's really, like, you know, if you're doing chips, life is great.
+Because, again, there's just wheelbarrows of money being tossed at chips right now.
+Boards, it's less popular. So, it would be interesting to be, like, all right, you know,
+we know how to transition things where we can have money to set up workshops, right? It's like,
+what are more cost-efficient ways to do it where you don't have the same amount of support?
+I think that would be an interesting problem to solve. And maybe,
+I don't know if you've thought about that yet, right? Like, I would definitely be interested
+in discussions about, like, how can we transition things out of academia and,
+or at least get community engagement so that our work has reached all the potential that it can.<br></br>
+
+Q: Yeah, I guess I don't have as much as useful input on that sense. But, I guess, kind of,
+it's also hard to comment on the, like, cost-efficient part, because I'm not,
+I don't have a lot of experience with that. But, yeah, I guess it's just, like, sharing as much
+as possible. Because I think sometimes what happens is that until you find the right people,
+it will be kind of natural, I guess, randomness, because you kind of don't have as much information.<br></br>
+
+A: Yes, yes. And even within, even with Chisel, right? Like, that was a many years long project
+before we got any kind of, we started getting real external interest, right? And
+that was a long way to get there. And that was with all the advantages of, like,
+like, here's funding to run workshops, we could actually run organized workshops.
+So, that's a hard problem, even when things are in your favor. It'll be interesting to look at
+a more, how can more austere projects get there? <br></br>
+
+Q: Yeah. Well, I hope that you and your team can
+accomplish that goal. And I think that also, like, a lot of people hopefully can help you. Like, I think, like, FOSSi people, I think would be great people to talk and brainstorm about it,
+because they are, like, so kind of experienced on that. 
+Okay, thank you a lot for your time. It was a very fun discussion.<br></br>
+
+									</p>
+								<!-- <p>Nunc quis dui scelerisque, scelerisque urna ut, dapibus orci. Sed vitae condimentum lectus, ut imperdiet quam. Maecenas in justo ut nulla aliquam sodales vel at ligula. Sed blandit diam odio, sed fringilla lectus molestie sit amet. Praesent eu tortor viverra lorem mattis pulvinar feugiat in turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ullamcorper tellus sit amet mattis dignissim. Phasellus ut metus ligula. Curabitur nec leo turpis. Ut gravida purus quis erat pretium, sed pellentesque massa elementum. Fusce vestibulum porta augue, at mattis justo. Integer sed sapien fringilla, dapibus risus id, faucibus ante. Pellentesque mattis nunc sit amet tortor pellentesque, non placerat neque viverra. </p> -->
+								<footer>
+									<ul class="stats">
+										<li><a href="index.html">Main</a></li>
+										<!-- <li><a href="#" class="icon solid fa-heart">28</a></li>
+										<li><a href="#" class="icon solid fa-comment">128</a></li> -->
+									</ul>
+								</footer>
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon solid fa-rss"><span class="label">RSS</span></a></li>
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
