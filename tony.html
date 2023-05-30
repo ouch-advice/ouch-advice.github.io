@@ -84,18 +84,336 @@
 							<article class="post">
 								<header>
 									<div class="title">
-										<h2><a href="#">Title to be defined</a></h2>
+										<h2><a href="#">Design space exploration vs HDL Generation? DSAGEN provides both!</a></h2>
 										<p>Interview with  Tony Nowatzki, UC Los Angeles</p>
 									</div>
 									<div class="meta">
-										<time class="published" datetime="2023-04-01">TBA</time>
+										<time class="published" datetime="2023-05-19">May 19th, 2023</time>
 										<a href="naz.html" class="author"><span class="name">Nazerke Turtayeva</span><img src="images/naz.jpg" alt="" /></a>
 									</div>
 								</header>
-								<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+								<span class="image featured"><img src="images/dsagen.png" alt="" /></span>
 								<p>
-									More info to come!
-									</p>
+								Q: Okay, looks like it's starting to record.<br><br>
+								A: Sounds good.<br><br>
+								Q: Cool. So we have this like starter question inspired by a computer architecture podcast.
+									What makes you want to wake up in the morning or stay up late at night?<br><br>
+								A: Well, I mean, that's a great question.
+								I think there's a standard answer where, you know, your research questions are always on your mind and you're thinking about them in the shower and before you go to sleep at night.
+								So I think that's kind of the standard thing. I also wanted to say something I worry a little bit about.
+								I think it has a little bit of relevance for open source hardware, which is.
+								So, you know, one of the things I worry about a lot is the pressure to publish in this field.
+								And kind of how that affects how there could be some harmful effects in terms of research quality and long term outcomes.
+								So, for example, like, let's say that you're a PhD student who's kind of thinking about, well, should I spend a lot of time working on this open source hardware project or should I try to like write research papers and try to just publish research papers?
+								It's like a very common question that students have. And it's hard to come up with the right answer.
+								If you're going to academia, it's very hard to push someone to do these big open source projects because you're definitely going to end up with less papers.
+								Or you have to do things like have your hand in a bunch of different projects.
+								That's also not necessarily ideal. Or if you're going to be like a tenure track assistant professor, getting compared in terms of paper count, that's going to make a big influence for you for what you optimize for.
+								So, thinking about ways that we can, as a community, put less focus on that and put more emphasis on real contributions is something I think a lot about.
+								Let me give you one example, just because I like this.
+								We have this award in computer architecture called the Hall of Fame Award.
+								Maybe you're familiar with this.
+								So, when you get eight papers in a particular venue, you get listed on the Hall of Fame.
+								And then you get to be on this list.
+								And as a PhD student, you see this list and you're like, gosh, I want my name to be on that list.
+								I want to get up there.
+								And in some way, it's fun.
+								And I think when you first see this, it's like, oh, this is very cool.
+								This is a way to reward people who are doing research.
+								But on the other hand, when you start to think about it more, we're incentivizing people to publish the most incremental papers possible to kind of get on each other's, just list each other's names on papers where they didn't really matter.
+								And not take as big of risks, I think.
+								And so, it's an example of like, we're trying to do something good as a community, like encourage people to publish and get popular, right?
+								But I think it kind of has these sort of negative effects.
+								And so, this is something I think a lot about.
+								Sorry to start the interview with something so pessimistic.<br><br>
+								Q: No, it's good.
+								I also started with that question.
+								Yeah, I think it's like one of the important problems.
+								And sometimes, yeah, we discuss it with John, too.
+								Yeah.
+								So, I know a little about DSAgen, or DSAgen, how to pronounce it?<br><br>
+								A: I normally say DSAgen, just pronounce the acronym DSA and then Gen.<br><br>
+								Q: Okay, got it.
+								Yeah, I looked at the presentation a little bit, but I don't have as deep knowledge.
+								And we assume that our community is not as well.
+								So, yeah, motivation of the project and how it works.
+								Yeah, let me start with kind of the initial observation.<br><br>
+								A: So, the motivation for this work kind of came all the way back from when I was a PhD at Wisconsin, working with my advisor, Karu Sankaralingam.
+								And we made this observation that there's a lot of similarities between accelerators.
+								Accelerators have, they tend to have a similar specialization and approach.
+								We came up with this thing called like the five C's of specialization.
+								They specialize for computation, they specialize their caching structures, the way that they perform concurrent computations, how they communicate, and how they coordinate different phases of the algorithm.
+								And so, they all kind of do these things, but kind of more deeply, right, a lot of different accelerators are built out of the same fundamental primitives.
+								They're built out of processing elements and routers, and they have different specialized memories and memory hierarchies, different units for synchronization and control.
+								And more or less, but if you squint your eyes a little bit, different accelerators are just kind of composing these different units in different ways.
+								And our thought was, well, you know, everybody right now, they're building the accelerator for the type of workload that they care about.
+								Wouldn't it be a lot easier if there was sort of this unified design space in which you could describe an accelerator, right, in this more robust way?
+								And, you know, instead of spending your time getting from zero to one with your accelerator, you can spend your time kind of adding the truly unique specialization features to the hardware.
+								So, that's kind of like our thinking from the beginning. And, yeah, and that's kind of where DS-AGEN came from.
+								And so then from there, you know, there's a question of, well, how do we do this? Like, we need a way to describe this design space of accelerators.
+								And so we came up with this concept of what we call an architecture description graph, which is just kind of a graph of these different fundamental accelerator primitives.
+								And then we came up with a compiler that could understand the components of that graph.
+								And, you know, based on whatever features were there inside of this composed accelerator, then apply the right set of transformations.
+								So, DS-AGEN is really about both being able to specify an accelerator and generate the corresponding hardware, and also being able to generate the ISA and compiler, right?
+								So, your design, not only does it specify hardware, it specifies an ISA that a compiler can target.
+								And so, I think that's kind of the basic idea of DS-AGEN.
+								And we showed that, like early on, that it could represent more simple accelerators that are doing things like dense linear algebra and kind of more regular type computations.
+								And since then, we've been pushing it out towards more irregular and challenging type of workloads.<br><br>
+								Q: Okay, yeah, that's definitely cool. Especially having both ISA and HDL generated.
+								So, I'm wondering, do you generate only via Chisel, or is it kind of HDL agnostic?<br><br>
+								A: For the moment, we generate Chisel and then go to RTL from there.
+								So, that's a design decision. I think we could have a different...
+								I mean, our infrastructure is built in Chisel, but there's nothing that would prevent us from having a generator from ADG to some other sort of HDL.
+								I think that's totally possible, and there might be advantages to using other HDLs.
+								Okay, I see. That's cool, yeah.<br><br>
+								Q: So, what is the choice of Chisel? Is it because it's nearby, and so we have a community at UC?<br><br>
+								A: Well, that's a good question. I think the original...
+								It's cool for port, right?
+								Yeah. I mean, we started using Chisel back in Wisconsin.
+								So, yeah, I think that... So, it didn't have anything to do with the UC system originally.
+								Oh, yeah.
+								We started using Chisel just because it was new, right? And it was fun to try it.
+								And it also had these object-oriented features that made it sound a lot more attractive to software folks like me.
+								And we were excited to try it. I think the group at Wisconsin, there was lovers and haters of Chisel.
+								And some of them continued to use it, and some of them said, you know, this is...
+								I'm done with this. I'm going back to the standard Verilog.
+								But we continue to use it. I think one of the biggest selling points for us is that this is the ecosystem, right?
+								We have the chipyard infrastructure. We have Firesim.
+								We have mapping to FPGAs that's already built for us.
+								So, it really helped us get off the ground very quickly with the DSAgent project and running on real FPGAs very quickly.<br><br>
+								Q: Okay, got it. Yeah. Sorry for confusion.
+								Yeah, you mentioned that you graduated from Wisconsin Madison.
+								But in my mind, I'm still thinking about UCLA because you're currently here.
+								That's why I was saying that, like, UC system. Yeah, but it's just confusing.<br><br>
+								A: Oh, no. So, I mean, that's... Yeah. Yes, we rebuilt. Yeah. So, there was...
+								But yeah, that's when I started having some experience with Chisel back in Wisconsin.
+								But everything with DSAgent is built at UCLA.<br><br>
+								Q: Yeah. So, and, like, with the ISA part, I've been playing with ISAs a little bit.
+								So, I was wondering, like, with DSAgent, is it, like, generating it for only one accelerator?
+								Or is it trying to generalize it somehow, too?
+								Is there any future when we can just have one ISA for different type of accelerators?
+								Which are, I guess, maybe grouped for deep learning or some others.<br><br>
+								A: Right. I think the right way to think about ISA generation in DSAgent is that we are defining a family of architectures.
+								We're defining a family of ISAs.
+								Those... So, different features can be kind of modularly included, depending on whether they're useful.
+								So, one example would be, like, the capability to do indirect memory access is a feature that we can choose to have or not.
+								If we don't choose it, it's not in the ISA, the compiler can't generate those instructions.
+								And we don't have to have the hardware in the backend to support it.
+								Or another example is, like, do you need to be able to do data-dependent control flow?
+								So, that would affect... If you need to be able to do that, you need processing elements that have that feature.
+								It makes it more complicated.
+								And so, being able to turn these features on and off helps our hardware be more specialized to certain kinds of computations.
+								Now, all that said, the domain sort of never really becomes a part of the ISA.
+								And I think that's really what we're trying to accomplish, right?
+								So, we don't want to have, like, sort of a set of features associated with a domain.
+								These are really kind of, like, fundamental computing capabilities that we're adding.
+								And depending on the domain you're targeting, you may choose to include them or not.
+								Does that kind of make sense?
+								So, you pick your domain.
+								Actually, I think maybe I will take a step back and explain the automation part of DSAgen.
+								That sounds more exciting.
+								Right.
+								So, I kind of talked about how you could specify an accelerator and we have a compiler.
+								But another set of challenges is how do you figure out what is the right accelerator for your set of problems?
+								And so, the way that we thought about it was very heavily inspired from HLS.
+								So, in HLS, you start with a program and then you apply a bunch of transformations to it.
+								And at the end of the day, you get a piece of hardware that exactly implements that program.
+								But when we're talking about reconfigurable hardware, programmable hardware, the dimension of flexibility is really important.
+								And so, the way that DSAgen works is that we have many programs that we might want to run.
+								And so, that becomes our input.
+								So, programs, like a set of programs, becomes our input to our tool, our synthesis tool.
+								And we do a design space exploration on this architecture description graph by modeling the performance of different transformations, both to the software and to the hardware.
+								And we explore what is the right accelerator for the set of applications.
+								And then, at the end of the day, we get a specialized design that does one thing, but a design that can execute, at the minimum, any of the input programs and potentially many more programs as well.
+								So, getting back to your original question, I think in some way I'm interpreting your question.
+								How do you get a domain-specialized accelerator of this?
+								So, at the end of the day, after you've analyzed your programs and done this design space exploration,
+								you'll have included the right set of features for your domain and the right sort of a data path and flexibility in the data path that you need for your domain and your set of input applications.<br><br>
+								Q: Got it. Yeah, it's definitely cool.
+								So, I'm also wondering, so I guess it's more like an architecture perspective, right?
+								When you mentioned the specification, I don't know about PL as much, programming languages, but I went to ASPLOS and everyone was talking about specification, formal specification.
+								So, I was wondering, is this problem something that can be approached from the PL perspective?
+								Or do you prefer more the, what's it called, architecture perspective on generating HLS?<br><br>
+								A: So, that's a good question.
+								I think there's a lot that the PL perspective has to offer in terms of, what's the right way?
+								If you want to have control over specifying hardware, what is the right way to do that?
+								And we thought about it as, either you just give us a program and we'll figure it out, or you kind of have to go give us the graph of the different components.
+								And maybe there's something in between that the programming language perspective could offer.
+								But I think I need to think about it more to give you a better answer.
+								Yeah, I think there's definitely a lot that could be explored there.<br><br>
+								Q: Yeah, for sure! So, what will be the next in your, how to call it, vision for DSAGEN?<br><br>
+								A: Yeah, there's a lot of things we want to explore in DSAGEN.
+								One of them, I guess I'll start somewhere. One of them is heterogeneity.
+								So, currently, mostly the DSAGEN tool focuses on building a really good core.
+								So, it's trying to figure out what's the right data path, what are the right scratchpad memories to have.
+								But it doesn't really have a good notion of the system-level design.
+								We started to do this a little bit with OverGen, so now we can generate.
+								So, OverGen is our project where we map a DSAGEN-generated design and a chipyard-generated network-on-chip and multicore as an overlay onto an FPGA.
+								So, the idea over there is that a multicore CDRA overlay would help you more easily program the FPGA.
+								You don't have to go through a long FPGA synthesis time or something.
+								You can just change your program and rerun it and compile it, and it's going to get reconfigured very quickly in FPGA.
+								So, it makes the whole FPGA programming experience a lot better.
+								And it cuts down a lot of the overhead of using normal overlays because you can be very specialized to your programs.
+								So, that was OverGen.
+								We had a little bit of capability over there to choose whether you wanted to have large cores or small cores, and choose whether you wanted to have a large network or small network.
+								But it's still very primitive, right?
+								And complex, like real-time systems.
+								If you're imagining creating accelerators for a mobile SoC or an AR-VR system, there's going to be a lot of different tasks that all have different kinds of constraints.
+								Real-time constraints, also throughput constraints.
+								You have the notion of multi-tenancy.
+								And in these complex systems, understanding how to provision hardware is a lot more complex than just optimizing for running one kernel at a time.
+								And so, there's a lot of really new trade-offs that we want to think about.
+								Instead of just having a single type of core and just replicating that a bunch of times, maybe it would actually be better to have three sets of cores.
+								And different applications can map these different sets of cores.
+								But then, once you do that, what about the memory locality?
+								By different types of cores, and moving computations around, I also want to think about making sure my computation can be close to memory as well.
+								And so, we're trying to think about the design space exploration problem for heterogeneous systems.
+								And also, how do we, in these sort of more complex heterogeneous accelerator designs, how do you manage memory effectively?<br><br>
+								Q: Wow. Yeah, that sounds very complex and ambitious. And I think it would be cool if it's possible.<br><br>
+								A: Yeah, and definitely looking further, we also want to make it easier to program.
+								So, right now, we more or less have a sort of restricted pthreads model of parallelization.
+								We'd like to look at expanding this to domain-specific languages.
+								It would be very useful for machine learning frameworks.
+								Also, other high-level programming languages, managed languages would be really interesting.
+								Or more task-parallel languages, too.<br><br>
+								Q: Yeah, that would be cool.
+								So, yeah, interesting. So, what is the difference of the, I think you mentioned a little bit earlier, of DSH and with other HLS tools?
+								Also, I think there's something similar. Maybe Aladdin was written later, but I'm not sure about the timelines.<br><br>
+								A: The Aladdin tool from David Brooks' group?<br><br>
+								Q: Yeah, no, that definitely came out sooner than DSAGEN.
+								No, Aladdin is definitely part of inspiration.
+								Aladdin helps you reason about early-stage accelerator designs and kind of reason about the trade-offs.
+								But as far as I know, unless there's some work I don't know about, Aladdin is really more about the exploration and not as much about generating hardware.
+								And Aladdin, I think, is also more similar to HLS in the design space, whereas we're targeting a more programmable sort of hardware.
+								Like DSAGEN, I think that if you really wanted to boil down at the end of the day, what is DSAGEN doing that HLS is not doing?
+								What DSAGEN is doing is helping you reason about flexibility.
+								It's treating flexibility as a first-order design constraint.
+								So based on the set and the variety and the different kinds of needs of different programs that are input to the framework, that are input to the design space exploration, how much and what kinds of flexibility do you need?
+								That's something that HLS is not equipped to do.<br><br>
+								Q: Got it. Okay, that's cool. Maybe I will put it as a caption for the blog!<br><br>
+								A: Oh, cool. Okay, great.<br><br>
+								A: I see. Okay. And I wonder, is there any difference in the efficiency when DSAGEN generates hardware for more dense computation versus irregular computations? Or would it be a similar way?<br><br>
+								I think it just depends on how irregular you're talking.
+								I mean, this is always our goal.
+								I think it is much easier to generate a piece of hardware, a flexible hardware that matches a fixed function hardware's performance.
+								If you're talking, the more simple you are, right?
+								The more regular your computation is, the more easy it is for something flexible to match something fixed function.
+								And it just gets more and more challenging.
+								And that's kind of what I did, what I spent my time in my research group at UCLA, trying to push the boundary of the kinds of hardware that we can generate.
+								And so, I think we made some good progress for certain kinds of restrictive form of irregularity, where the program can guarantee a whole bunch of things.
+								Like you can guarantee data access, and you know the exact pattern of dependencies and so on.
+								And so, the more and more irregular you get, the harder it is.<br><br>
+								Q: I see. Yeah, I guess there's a trick with staying a bit general purpose too.
+								Yeah, so I guess one of the also exciting questions for me is that how much time does it take?<br><br>
+								A: Like, so I will write the code, then it will be mapped into the accelerator, right?
+								And generating HDL is so much time.
+								I mean, I assume it should be.
+								It depends, I guess, from the size, I guess, right?
+								The program, okay, let's say you already have an accelerator that you generated, right?
+								Writing a new application and compiling it is just like targeting a CPU.
+								It doesn't take any extra time, right?
+								Generating the hardware at the moment does take quite a bit of time.
+								So, the design space exploration that we have published in the DSA gen and over gen, you know, there's some innovations there, but it's still fairly naive.
+								So, it's running experiments on adding and subtracting components of the hardware without really long-term planning.
+								And so, you're kind of effectively doing something of a recompilation with every design space exploration.
+								So, what I mean to say by all of that is that design space exploration takes a long time.
+								It might take, I think like for a realistic project, it would take like a day, you run it overnight.
+								And the next day you get like an optimized hardware.
+								We are working on ways to improve that using reinforcement learning.
+								And so, I have a student, Dylan Kups, who's working on using reinforcement learning to more intelligently search the design space.
+								And so, hopefully we'll have something that can improve both the compile time, like make it very much easier to compile and faster to compile applications.
+								And then also to search the design, the hardware design space, which is like complex graphic design space in a more intelligent way.
+								So, it's something that we would like to do.
+								And I think a part of it is trying to make things faster.
+								I guess it's nicer to have your design generated faster.
+								But I think the faster you can generate hardware, the more complex of a design that you can explore.
+								The larger design you can have and more aggressive optimizations that you can perform.
+								So, it's not just about, I mean, I think in general, it's fine if it takes a day to get hardware.
+								You're going to have a hardware for a long time.
+								But we want to be able to do more complex designs in the future.<br><br>
+								Q: Yeah, definitely. Usually, generating hardware is not as urgent.<br><br>
+								A: I mean, usually the process itself, I guess, just waiting for it takes so much time.<br><br>
+								Q: Right, right.
+								Okay, this is a great talk about this DSAGEN.
+								But I have a question, one of the final questions.
+								So, what would be your wisdom for early-stage PhD students for productivity and research creativity and consistency?
+								I don't know. And maybe I can later ask questions about middle-year students.<br><br>
+								A: So, your question is?<br><br>
+								Q: Maybe just advice to the early-stage PhD students, yeah.<br><br>
+								A: I think maybe say a few things.
+								First of all, I think when you're starting, you're not used to working on something for a really long time, right?
+								You kind of have a project that you did in class and so on.
+								And so, you spent some time on it.
+								During a PhD, you work on something a really, really long time.
+								And so, I think it's important that you really like what you do.
+								And you are willing to communicate with your advisor about how you feel about something, right?
+								You don't want to be like, oh, I don't want to do this.
+								I don't want to do that.
+								You don't want to be unhappy.
+								The more happy you are, the more motivated you are to work on your projects.
+								And I think that's just like a key to having a good PhD.
+								Just in general, communicating with your advisor is just super important.
+								And taking the time to find something that you really love and can spend a lot of time on.<br><br>
+								Q: Yeah, got it, thanks for it.
+								We were originally focusing on open source projects.
+								But when I'm also asking questions, I'm also putting in advice for PhD questions.<br><br>
+								A: I mean, there's so many things that I could say.
+								Yeah, I think it's very important for it.
+								So, thanks for it.<br><br>
+								Q: Yeah, so I guess it's time to wrap up.
+								But do you have questions for me?
+								Oh, you don't have to ask questions.<br><br>
+								A: Well, no, I want to ask a question.
+								Give me a sec to think.
+								So, given where you are in your PhD, what are you most worried about?
+								And would you have done anything differently so far?<br><br>
+								Q: Oh, I see.
+								So, for the first part of the question, I guess I'm worried that when you'll be doing the research exploration, right?
+								So, it's kind of so easy to, I guess, get stuck into something.
+								And you can, I guess, maybe be passionate about the wrong decision and be spent on it for a long time.
+								So, I guess it's my worry about my PhD duration.
+								Because it's, yeah, like people say fail faster, but I think it's a little bit harder.
+								For the future career, I guess, like I want to go first to the industry, right?
+								And then it will be so much about the different projects.
+								And like my decision will be affecting so much, for example, maybe real world applications.
+								And I think I'm afraid of the, I guess, weight of that decisions.
+								But I'm not also going to be alone.<br><br>
+								A: That's a good point, yeah.
+								That's true.
+								One thing I would say about the first part is like, when you're done with your PhD and you start doing whatever, you know, whatever the next phase of your life is.
+								And you kind of look back at your time.
+								You realize how precious it is.
+								Because this is like the only time in your life where you're like, you're really like doing one thing.
+								Like you're like working on your one problem, or maybe you have one or two problems that you're working on.
+								And you can spend like 100% of your attention and time on it.
+								And I think whether you go to industry or academia, you get pulled in different directions.
+								And you're managing things and there's product concerns.
+								And, you know, there's all sorts of things that come up and responsibilities that you have.
+								And so, the concern about, like I, as a PhD student, I also worried like, I'm kind of, I mean, in the end, it took like seven years to graduate from PhD.
+								It took a long time.
+								And even when I was starting, that was also, you know, my big concern.
+								Like the first few years, I didn't have a paper yet and worried, you know, am I doing the right thing?
+								And now when I look back on it, it's like, oh, man, I just wish I could go back and be a PhD again.
+								And so, yeah, it's, I think you have to appreciate it, right?
+								There's a lot of, you know, PhD comes with a lot of uncertainty and a lot of challenges.
+								But at the same time, you have to like appreciate what's really good about it.
+								And I think when you do that, like it's, it can help kind of soften the negative aspects of it.
+								I don't know.
+								There's a lot of, yeah, there's a lot of good things about PhD as well.<br><br>
+								Q: Yeah, definitely.
+								I'm enjoying my time, but I think it also helps me to, again, appreciate it even more.<br><br>
+								A: Right, right.
+								For sure.<br><br>
+								Q: OK, thanks a lot for your time.
+								And yeah, hope to see you in the future conferences or events.<br><br>
+								A: For sure.
+								   Thanks so much for having me.<br><br>
+								Q: It's great to be here and talk to you.<br><br>
+								A: Yeah. All right.
+								Take care.<br><br>
+								Q: Bye bye.<br><br>
+
+								</p>
 								<!-- <p>Nunc quis dui scelerisque, scelerisque urna ut, dapibus orci. Sed vitae condimentum lectus, ut imperdiet quam. Maecenas in justo ut nulla aliquam sodales vel at ligula. Sed blandit diam odio, sed fringilla lectus molestie sit amet. Praesent eu tortor viverra lorem mattis pulvinar feugiat in turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ullamcorper tellus sit amet mattis dignissim. Phasellus ut metus ligula. Curabitur nec leo turpis. Ut gravida purus quis erat pretium, sed pellentesque massa elementum. Fusce vestibulum porta augue, at mattis justo. Integer sed sapien fringilla, dapibus risus id, faucibus ante. Pellentesque mattis nunc sit amet tortor pellentesque, non placerat neque viverra. </p> -->
 								<footer>
 									<ul class="stats">
